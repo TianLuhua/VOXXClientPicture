@@ -24,6 +24,10 @@
         "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
+        "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_display.xml.flat",
+        "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\layout\\activity_display.xml"
+    },
+    {
         "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_browser.png.flat",
         "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher_browser.png"
     },
@@ -50,6 +54,14 @@
     {
         "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
         "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_searcher_listview_item.xml.flat",
+        "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\layout\\activity_searcher_listview_item.xml"
+    },
+    {
+        "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_searcher.xml.flat",
+        "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\layout\\activity_searcher.xml"
     },
     {
         "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher.png.flat",

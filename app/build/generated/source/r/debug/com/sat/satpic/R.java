@@ -33,22 +33,29 @@ public final class R {
   public static final class id {
     public static final int action_settings=0x7f030000;
     public static final int bt_connect=0x7f030001;
-    public static final int iv_click=0x7f030002;
-    public static final int iv_pic=0x7f030003;
-    public static final int iv_search=0x7f030004;
-    public static final int ll_find=0x7f030005;
-    public static final int ll_info=0x7f030006;
-    public static final int lv_device=0x7f030007;
-    public static final int lv_ip=0x7f030008;
-    public static final int pb_wait=0x7f030009;
-    public static final int progressBar1=0x7f03000a;
-    public static final int surfaceView1=0x7f03000b;
-    public static final int tv_list_ip=0x7f03000c;
+    public static final int dispaly_remote_service_surface=0x7f030002;
+    public static final int display_remote_service_wait=0x7f030003;
+    public static final int iv_click=0x7f030004;
+    public static final int iv_pic=0x7f030005;
+    public static final int iv_search=0x7f030006;
+    public static final int iv_search_text=0x7f030007;
+    public static final int ll_find=0x7f030008;
+    public static final int ll_info=0x7f030009;
+    public static final int lv_device=0x7f03000a;
+    public static final int lv_ip=0x7f03000b;
+    public static final int pb_wait=0x7f03000c;
+    public static final int progressBar1=0x7f03000d;
+    public static final int remote_device_list=0x7f03000e;
+    public static final int surfaceView1=0x7f03000f;
+    public static final int tv_list_ip=0x7f030010;
   }
   public static final class layout {
-    public static final int activity_main=0x7f040000;
-    public static final int list_item=0x7f040001;
-    public static final int view_ip_list=0x7f040002;
+    public static final int activity_display=0x7f040000;
+    public static final int activity_main=0x7f040001;
+    public static final int activity_searcher=0x7f040002;
+    public static final int activity_searcher_listview_item=0x7f040003;
+    public static final int list_item=0x7f040004;
+    public static final int view_ip_list=0x7f040005;
   }
   public static final class menu {
     public static final int main=0x7f050000;
@@ -59,7 +66,8 @@ public final class R {
     public static final int bt_find=0x7f060002;
     public static final int bt_start=0x7f060003;
     public static final int hello_world=0x7f060004;
-    public static final int tv_find=0x7f060005;
+    public static final int press_again=0x7f060005;
+    public static final int tv_find=0x7f060006;
   }
   public static final class style {
     public static final int AppBaseTheme=0x7f070000;

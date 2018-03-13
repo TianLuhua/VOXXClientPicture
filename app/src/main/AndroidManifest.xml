@@ -19,7 +19,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.sat.satpic.MainActivity"
+            android:name="com.sat.satpic.searcher.SearcherActivity"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
             android:label="@string/app_name" >

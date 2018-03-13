@@ -52,11 +52,9 @@
                 {
                     "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\values\\colors.xml",
                     "from": {
-                        "startLines": "4,6,7,9,5,8,2,3",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "159,255,301,404,208,353,57,112",
-                        "endColumns": "47,44,50,50,45,49,53,45",
-                        "endOffsets": "202,295,347,450,249,398,106,153"
+                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1"
                     },
                     "to": {
                         "startLines": "5,6,7,8,9,10,11,12",
@@ -69,30 +67,25 @@
                 {
                     "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
-                        "startLines": "6,15",
-                        "startColumns": "4,4",
-                        "startOffsets": "191,522",
-                        "endLines": "12,17",
-                        "endColumns": "12,12",
-                        "endOffsets": "481,679"
+                        "startLines": "-1,-1",
+                        "startColumns": "-1,-1",
+                        "startOffsets": "-1,-1"
                     },
                     "to": {
-                        "startLines": "19,26",
+                        "startLines": "20,23",
                         "startColumns": "4,4",
-                        "startOffsets": "900,1191",
-                        "endLines": "25,28",
+                        "startOffsets": "972,1055",
+                        "endLines": "22,25",
                         "endColumns": "12,12",
-                        "endOffsets": "1186,1346"
+                        "endOffsets": "1050,1122"
                     }
                 },
                 {
                     "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\values\\dimens.xml",
                     "from": {
-                        "startLines": "3,4,5",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "92,151,208",
-                        "endColumns": "57,55,38",
-                        "endOffsets": "145,202,242"
+                        "startLines": "-1,-1,-1",
+                        "startColumns": "-1,-1,-1",
+                        "startOffsets": "-1,-1,-1"
                     },
                     "to": {
                         "startLines": "2,3,4",
@@ -105,18 +98,18 @@
                 {
                     "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
-                        "startLines": "4,3,6,7,5,8",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "105,58,213,255,159,299",
-                        "endColumns": "52,45,40,42,52,64",
-                        "endOffsets": "153,99,249,293,207,359"
+                        "startLines": "-1,-1,-1,-1,-1,9,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,4,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,366,-1",
+                        "endColumns": "-1,-1,-1,-1,-1,71,-1",
+                        "endOffsets": "-1,-1,-1,-1,-1,433,-1"
                     },
                     "to": {
-                        "startLines": "13,14,15,16,17,18",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "599,652,698,739,782,835",
-                        "endColumns": "52,45,40,42,52,64",
-                        "endOffsets": "647,693,734,777,830,895"
+                        "startLines": "13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "599,652,698,739,782,835,907",
+                        "endColumns": "52,45,40,42,52,71,64",
+                        "endOffsets": "647,693,734,777,830,902,967"
                     }
                 }
             ]

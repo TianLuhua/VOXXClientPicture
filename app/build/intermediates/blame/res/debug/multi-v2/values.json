@@ -1,0 +1,79 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "4,6,7,9,5,8,2,3",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "159,255,301,404,208,353,57,112",
+                        "endColumns": "47,44,50,50,45,49,53,45",
+                        "endOffsets": "202,295,347,450,249,398,106,153"
+                    },
+                    "to": {
+                        "startLines": "5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "208,256,301,352,403,449,499,553",
+                        "endColumns": "47,44,50,50,45,49,53,45",
+                        "endOffsets": "251,296,347,398,444,494,548,594"
+                    }
+                },
+                {
+                    "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "6,15",
+                        "startColumns": "4,4",
+                        "startOffsets": "191,522",
+                        "endLines": "12,17",
+                        "endColumns": "12,12",
+                        "endOffsets": "481,679"
+                    },
+                    "to": {
+                        "startLines": "19,26",
+                        "startColumns": "4,4",
+                        "startOffsets": "900,1191",
+                        "endLines": "25,28",
+                        "endColumns": "12,12",
+                        "endOffsets": "1186,1346"
+                    }
+                },
+                {
+                    "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\values\\dimens.xml",
+                    "from": {
+                        "startLines": "3,4,5",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "92,151,208",
+                        "endColumns": "57,55,38",
+                        "endOffsets": "145,202,242"
+                    },
+                    "to": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,113,169",
+                        "endColumns": "57,55,38",
+                        "endOffsets": "108,164,203"
+                    }
+                },
+                {
+                    "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "4,3,6,7,5,8",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "105,58,213,255,159,299",
+                        "endColumns": "52,45,40,42,52,64",
+                        "endOffsets": "153,99,249,293,207,359"
+                    },
+                    "to": {
+                        "startLines": "13,14,15,16,17,18",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "599,652,698,739,782,835",
+                        "endColumns": "52,45,40,42,52,64",
+                        "endOffsets": "647,693,734,777,830,895"
+                    }
+                }
+            ]
+        }
+    ]
+}

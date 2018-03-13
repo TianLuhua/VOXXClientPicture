@@ -1,0 +1,58 @@
+[
+    {
+        "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\layout_list_item.xml.flat",
+        "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\layout\\list_item.xml"
+    },
+    {
+        "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ir_swich_selected.png.flat",
+        "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\drawable-hdpi\\ir_swich_selected.png"
+    },
+    {
+        "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\layout_view_ip_list.xml.flat",
+        "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\layout\\view_ip_list.xml"
+    },
+    {
+        "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_click_view.png.flat",
+        "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\drawable-hdpi\\click_view.png"
+    },
+    {
+        "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_browser.png.flat",
+        "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher_browser.png"
+    },
+    {
+        "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ir_swich_default.png.flat",
+        "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\drawable-hdpi\\ir_swich_default.png"
+    },
+    {
+        "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_search.png.flat",
+        "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\drawable-hdpi\\search.png"
+    },
+    {
+        "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ir_swich_selector.xml.flat",
+        "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\drawable\\ir_swich_selector.xml"
+    },
+    {
+        "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher.png.flat",
+        "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\menu_main.xml.flat",
+        "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\menu\\main.xml"
+    },
+    {
+        "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
+        "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher.png.flat",
+        "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    }
+]

@@ -29,7 +29,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,7 +48,7 @@ import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.sat.satpic.utils.DeviceInfo;
+import com.sat.satpic.bean.DeviceInfo;
 import com.sat.satpic.utils.HideSystemUIUtils;
 import com.sat.satpic.utils.IpUtils;
 

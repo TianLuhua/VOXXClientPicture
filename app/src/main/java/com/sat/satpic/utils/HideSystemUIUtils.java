@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.view.View;
 
 /**
- * Created by Administrator on 2017/8/17 0017.
+ * Created by Tianluhua on 2017/8/17 0017.
  */
 public class HideSystemUIUtils {
 	/**

@@ -1,10 +1,16 @@
 package com.sat.satpic.display;
 
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
-import android.view.SurfaceView;
+import android.view.SurfaceHolder;
+import android.view.View;
 import android.widget.ProgressBar;
 
 import com.sat.satpic.Config;
@@ -12,6 +18,7 @@ import com.sat.satpic.R;
 import com.sat.satpic.base.AbstractMVPActivity;
 import com.sat.satpic.utils.HideSystemUIUtils;
 import com.sat.satpic.utils.LogUtils;
+import com.sat.satpic.widget.ImageSurfaceView;
 
 /**
  * Created by Tianluhua on 2018/3/13.
@@ -22,7 +29,7 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
 
     public static final String TAG = "DisPlayActivity";
 
-    private SurfaceView displayRemoteDeviceSurface;
+    private ImageSurfaceView displayRemoteDeviceSurface;
     private ProgressBar displayRemoteDeviceWaitProgress;
 
     private String remoteServiceIP;
@@ -38,7 +45,7 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         HideSystemUIUtils.hideSystemUI(this);
-        displayPresenter=getPresenter();
+        displayPresenter = getPresenter();
 
 
         DisplayMetrics dm = getResources().getDisplayMetrics();
@@ -52,8 +59,8 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
     protected void onStart() {
         super.onStart();
         remoteServiceIP = getIntent().getExtras().getString(Config.SystemKey.KEY_BUNDLE_SERVICE_IP);
-        LogUtils.e(TAG, "remoteServiceIP:"+remoteServiceIP);
-        if (displayPresenter!=null){
+        LogUtils.e(TAG, "remoteServiceIP:" + remoteServiceIP);
+        if (displayPresenter != null) {
             displayPresenter.startDisPlayRomoteDesk(remoteServiceIP);
         }
     }
@@ -78,12 +85,19 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
     @Override
     public void loading() {
         LogUtils.e(TAG, "loading");
+        if (displayRemoteDeviceWaitProgress.getVisibility() != View.VISIBLE) {
+            displayRemoteDeviceWaitProgress.setVisibility(View.VISIBLE);
+        }
 
     }
 
     @Override
     public void disPlayRemoteDesk(Bitmap bitmap) {
-        LogUtils.e(TAG, "disPlayRemoteDesk---Bitmap:"+bitmap.getByteCount());
+        if (displayRemoteDeviceWaitProgress.getVisibility() == View.VISIBLE) {
+            displayRemoteDeviceWaitProgress.setVisibility(View.GONE);
+        }
+        LogUtils.e(TAG, "disPlayRemoteDesk---Bitmap:" + bitmap.getByteCount());
+        displayRemoteDeviceSurface.setBitmap(bitmap);
     }
 
 
@@ -104,7 +118,7 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
         int y = (int) event.getY();
         changeX = (int) (x * densityX);
         changeY = (int) (y * densityY);
-        if (displayPresenter==null)
+        if (displayPresenter == null)
             return super.onTouchEvent(event);
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
@@ -125,5 +139,9 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
         }
         return super.onTouchEvent(event);
     }
+
+
+
+
 
 }

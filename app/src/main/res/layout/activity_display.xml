@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:keepScreenOn="true">
 
-    <SurfaceView
+    <com.sat.satpic.widget.ImageSurfaceView
         android:id="@+id/dispaly_remote_service_surface"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

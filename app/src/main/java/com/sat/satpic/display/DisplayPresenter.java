@@ -7,4 +7,8 @@ import com.sat.satpic.base.AbstractPresenter;
  */
 
 public class DisplayPresenter extends AbstractPresenter<DisplayView> {
+    @Override
+    public void startDispayRemoteByServiceID(String remoteServiceID) {
+
+    }
 }

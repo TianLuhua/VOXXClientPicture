@@ -34,7 +34,12 @@ public class SearcherMode {
     private ArrayList<DeviceInfo> remoteDeviceInfos;
     private String remoteServerIp;
     private CallBack callBack;
+
     private boolean isLoopSendBraodCast = true;
+    private byte[] data = new byte[50];
+    private DatagramPacket pack;
+    private String back;
+
 
     private Handler mAsyncEventHandler = new Handler() {
 
@@ -145,11 +150,11 @@ public class SearcherMode {
             if (udpBack == null) {
                 udpBack = new DatagramSocket(Config.PortGlob.BACKPORT);
             }
-            byte[] data = new byte[50];
-            DatagramPacket pack = new DatagramPacket(data, data.length);
+
+            pack = new DatagramPacket(data, data.length);
             udpBack.receive(pack);
             udpBack.setSoTimeout(SCAN_SERVER_OUTTIME);
-            String back = new String(pack.getData(), pack.getOffset(),
+            back = new String(pack.getData(), pack.getOffset(),
                     pack.getLength());
             if (back != null && back.startsWith("serverip:")) {
                 String[] split = back.split(":");

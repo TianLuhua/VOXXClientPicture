@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
 
     <application
+        android:name="com.sat.satpic.VOXXApplication"
         android:allowBackup="true"
         android:debuggable="true"
         android:icon="@drawable/ic_launcher"
@@ -29,6 +30,16 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sat.satpic.display.DisPlayActivity"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="com.sat.action.display.remote" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

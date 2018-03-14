@@ -71,7 +71,11 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
         display_remote_devices_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                String serverIp = remoteDeviceInfos.get(position).getIpAddress();
+                Toast.makeText(getApplicationContext(),
+                        "serverIp:" + serverIp, Toast.LENGTH_SHORT).show();
+                searcherPrecenter.startDispayRemoteByServiceID(serverIp);
+                SearcherActivity.this.finish();
             }
         });
     }
@@ -93,7 +97,7 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
         LogUtils.e(TAG, "searchSuccess:" + deviceInfos.toString());
 
         Toast.makeText(getApplicationContext(),
-                "searchSuccess", Toast.LENGTH_SHORT).show();
+                R.string.search_success, Toast.LENGTH_SHORT).show();
         if (deviceAdapter == null) {
             deviceAdapter = new DeviceAdapter(getApplicationContext(), deviceInfos);
             display_remote_devices_list.setAdapter(deviceAdapter);

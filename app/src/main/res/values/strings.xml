@@ -8,5 +8,10 @@
     <string name="bt_start">Start</string>
     <string name="tv_find">Looking for wireless devices</string>
     <string name="press_again">Press again to exit the program</string>
+    <string name="search_success">search Success</string>
+
+
+
+
 
 </resources>

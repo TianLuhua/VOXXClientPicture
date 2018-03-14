@@ -34,4 +34,11 @@ public class Config {
         public static final int START_SHOW_DATA = 6;
         public static final int IS_LOOP_SENDBROADCAST = 7;
     }
+
+    public static class SystemAction {
+        public static final String ACTIVITY_DISPAY_REMOTE = "com.sat.action.display.remote";
+    }
+    public static class SystemKey {
+        public static final String KEY_BUNDLE_SERVICE_IP = "serverIp";
+    }
 }

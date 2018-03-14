@@ -3,10 +3,10 @@ package com.sat.satpic.display;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
-import android.util.Log;
 
 import com.sat.satpic.Config;
 import com.sat.satpic.utils.ByteUtils;
+import com.sat.satpic.utils.LogUtils;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -37,18 +37,18 @@ public class DisplayMode {
             switch (msg.what) {
 
                 case Config.HandlerGlod.CONNECT_FAIL:
-                    if (callBack!=null){
+                    if (callBack != null) {
                         callBack.fila();
                     }
                     break;
 
                 case Config.HandlerGlod.CONNET_SUCCESS:
-                    if (callBack!=null){
+                    if (callBack != null) {
                         callBack.connectSucess();
                     }
                     break;
                 case Config.HandlerGlod.SHOW_IMAGEVIEW:
-                    if (callBack!=null&&bm!=null){
+                    if (callBack != null && bm != null) {
                         callBack.disPlayRemoteDesk(bm);
                     }
                     break;
@@ -62,7 +62,6 @@ public class DisplayMode {
     };
 
 
-
     private ExecutorService executorService = newFixThreadPool(10);
 
     private ExecutorService newFixThreadPool(int nThreads) {
@@ -72,19 +71,19 @@ public class DisplayMode {
 
 
     public void startServer(final String serverIp) {
-        if (callBack!=null){
+        if (callBack != null) {
             callBack.loading();
         }
         executorService.execute(new Runnable() {
             @Override
             public void run() {
                 try {
-                    Log.i(TAG, "hdb---data--连接start");
+                    LogUtils.i(TAG, "hdb---data--连接start");
                     dataSocket = new Socket(serverIp, Config.PortGlob.DATAPORT);// 10.0.0.24
 
                     DataInputStream dis = new DataInputStream(
                             dataSocket.getInputStream());
-                    Log.i(TAG, "hdb---data--连接成功");
+                    LogUtils.i(TAG, "hdb---data--连接成功");
                     mHandler.sendEmptyMessage(Config.HandlerGlod.CONNET_SUCCESS);
                     isRun = true;
                     while (isRun) {
@@ -92,7 +91,7 @@ public class DisplayMode {
                     }
                     mHandler.sendEmptyMessage(Config.HandlerGlod.CONNECT_FAIL);
                 } catch (Exception ex) {
-                    Log.e(TAG, "hdb--dataServer-ex:" + ex.toString());
+                    LogUtils.e(TAG, "hdb--dataServer-ex:" + ex.toString());
                     mHandler.sendEmptyMessage(Config.HandlerGlod.CONNECT_FAIL);
                 }
             }
@@ -101,17 +100,17 @@ public class DisplayMode {
 
 
     private synchronized void readFile(DataInputStream dis) throws IOException {
-        Log.i(TAG, "hdb---readFile");
+        LogUtils.i(TAG, "hdb---readFile");
         len = new byte[3];
         dis.read(len);
         int length = ByteUtils.bufferToInt(len);
-        Log.i(TAG, "hdb---readFile--length:" + length);
+        LogUtils.i(TAG, "hdb---readFile--length:" + length);
         sendBytes = new byte[length];
         dis.readFully(sendBytes);
         bm = BitmapFactory.decodeByteArray(sendBytes, 0, length);
-        Log.i(TAG, "hdb----接收文件<>成功-------bm:" + bm);
+        LogUtils.i(TAG, "hdb----接收文件<>成功-------bm:" + bm);
         if (bm != null) {
-            Log.i(TAG, "hdb-------bm:" + bm.getByteCount());
+            LogUtils.i(TAG, "hdb-------bm:" + bm.getByteCount());
             mHandler.sendEmptyMessage(Config.HandlerGlod.SHOW_IMAGEVIEW);
         }
     }
@@ -122,7 +121,7 @@ public class DisplayMode {
         this.callBack = callBack;
     }
 
-    public  interface CallBack {
+    public interface CallBack {
 
         public void loading();
 
@@ -133,10 +132,10 @@ public class DisplayMode {
         public void connectSucess();
     }
 
-    public void onDestroy(){
-        sendBytes=null;
-        bm=null;
-        dataSocket=null;
+    public void onDestroy() {
+        sendBytes = null;
+        bm = null;
+        dataSocket = null;
     }
 
 }

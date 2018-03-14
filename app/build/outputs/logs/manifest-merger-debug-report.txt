@@ -32,7 +32,7 @@ INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManif
 		INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml
 		INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:8:9-34
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:8:9-35
 		INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml
 		INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.ACCESS_NETWORK_STATE

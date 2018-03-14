@@ -2,8 +2,6 @@ package com.sat.satpic.widget;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.BitmapRegionDecoder;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
@@ -15,8 +13,6 @@ import android.view.SurfaceView;
 
 import com.sat.satpic.utils.LogUtils;
 
-import java.io.FileInputStream;
-
 /**
  * Created by Tianluhua on 2018/3/14.
  */
@@ -27,26 +23,22 @@ public class ImageSurfaceView extends SurfaceView implements SurfaceHolder.Callb
 
     private Bitmap bitmap;
     private static Matrix matrix = new Matrix();
-    //获取画布
     private SurfaceHolder mSurfaceHolder = null;
     private Paint paint = new Paint();
 
 
     public ImageSurfaceView(Context context) {
         super(context, null);
-        LogUtils.e("ImageSurfaceView---1");
 
     }
 
     public ImageSurfaceView(Context context, AttributeSet attrs) {
         super(context, attrs, 0);
         init();
-        LogUtils.e("ImageSurfaceView---2");
     }
 
     public ImageSurfaceView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        LogUtils.e("ImageSurfaceView---3");
     }
 
 

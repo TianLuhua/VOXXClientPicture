@@ -17,6 +17,4 @@ public interface SearcherView extends BaseView {
     public void searchFila(String msg);
     public void searchOutTime();
 
-
-
 }

@@ -165,7 +165,7 @@ public class SearcherMode {
                     DeviceInfo mDeviceInfo = new DeviceInfo(remoteServerIp, split[2]);
                     remoteDeviceInfos.add(mDeviceInfo);
 
-                    byte[] over = "over".getBytes();
+                    byte[] over = "pic".getBytes();
                     DatagramPacket packet = new DatagramPacket(over,
                             over.length, broadcastAddress,
                             Config.PortGlob.MULTIPORT);

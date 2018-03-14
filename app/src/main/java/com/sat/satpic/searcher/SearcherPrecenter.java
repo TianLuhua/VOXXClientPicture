@@ -1,6 +1,5 @@
 package com.sat.satpic.searcher;
 
-import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +10,6 @@ import android.widget.Toast;
 import com.sat.satpic.Config;
 import com.sat.satpic.base.AbstractPresenter;
 import com.sat.satpic.bean.DeviceInfo;
-import com.sat.satpic.utils.LogUtils;
 
 import java.util.ArrayList;
 
@@ -98,7 +96,6 @@ public class SearcherPrecenter extends AbstractPresenter<SearcherView> {
         mContext = null;
     }
 
-    @Override
     public void startDispayRemoteByServiceID(String remoteServiceID) {
         Intent intent = new Intent(Config.SystemAction.ACTIVITY_DISPAY_REMOTE);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

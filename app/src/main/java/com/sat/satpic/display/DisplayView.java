@@ -1,5 +1,7 @@
 package com.sat.satpic.display;
 
+import android.graphics.Bitmap;
+
 import com.sat.satpic.base.BaseView;
 
 /**
@@ -7,4 +9,13 @@ import com.sat.satpic.base.BaseView;
  */
 
 public interface DisplayView extends BaseView {
+
+
+    public void loading();
+
+    public void disPlayRemoteDesk(Bitmap bitmap);
+
+    public void fila();
+
+    public void connectSucess();
 }

@@ -10,6 +10,10 @@ public class Config {
         public static final String JACTION = "action";
         public static final String JX = "x";
         public static final String JY = "y";
+
+        public static final int ACTION_DOWN = 0;
+        public static final int ACTION_MOVE = 2;
+        public static final int ACTION_UP = 1;
     }
 
     public static class PortGlob {
@@ -33,6 +37,7 @@ public class Config {
         public static final int CONNECT_FAIL = 5;
         public static final int START_SHOW_DATA = 6;
         public static final int IS_LOOP_SENDBROADCAST = 7;
+        public static final int SHOW_IMAGEVIEW=8;
     }
 
     public static class SystemAction {

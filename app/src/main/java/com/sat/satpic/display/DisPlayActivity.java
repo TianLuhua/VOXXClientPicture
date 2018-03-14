@@ -1,6 +1,9 @@
 package com.sat.satpic.display;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.widget.ProgressBar;
 
@@ -21,12 +24,28 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
 
     private SurfaceView displayRemoteDeviceSurface;
     private ProgressBar displayRemoteDeviceWaitProgress;
+
     private String remoteServiceIP;
+    private DisplayPresenter displayPresenter;
+
+    private float densityX = 0;
+    private float densityY = 0;
+
+    private int changeX = 0;
+    private int changeY = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         HideSystemUIUtils.hideSystemUI(this);
+        displayPresenter=getPresenter();
+
+
+        DisplayMetrics dm = getResources().getDisplayMetrics();
+        int widthPixels = dm.widthPixels;
+        int heightPixels = dm.heightPixels;
+        densityX = 1024f / (float) widthPixels;
+        densityY = 600f / (float) heightPixels;
     }
 
     @Override
@@ -34,6 +53,9 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
         super.onStart();
         remoteServiceIP = getIntent().getExtras().getString(Config.SystemKey.KEY_BUNDLE_SERVICE_IP);
         LogUtils.e(TAG, "remoteServiceIP:"+remoteServiceIP);
+        if (displayPresenter!=null){
+            displayPresenter.startDisPlayRomoteDesk(remoteServiceIP);
+        }
     }
 
     @Override
@@ -51,4 +73,57 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
     protected DisplayPresenter createPresenter() {
         return new DisplayPresenter();
     }
+
+
+    @Override
+    public void loading() {
+        LogUtils.e(TAG, "loading");
+
+    }
+
+    @Override
+    public void disPlayRemoteDesk(Bitmap bitmap) {
+        LogUtils.e(TAG, "disPlayRemoteDesk---Bitmap:"+bitmap.getByteCount());
+    }
+
+
+    @Override
+    public void fila() {
+        LogUtils.e(TAG, "fila");
+    }
+
+    @Override
+    public void connectSucess() {
+        LogUtils.e(TAG, "connectSucess");
+    }
+
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int x = (int) event.getX();
+        int y = (int) event.getY();
+        changeX = (int) (x * densityX);
+        changeY = (int) (y * densityY);
+        if (displayPresenter==null)
+            return super.onTouchEvent(event);
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                displayPresenter.sendTouchData(Config.MotionEventKey.ACTION_DOWN, changeX, changeY);
+                break;
+
+            case MotionEvent.ACTION_MOVE:
+                displayPresenter.sendTouchData(Config.MotionEventKey.ACTION_MOVE, changeX, changeY);
+                break;
+
+            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_CANCEL:
+                displayPresenter.sendTouchData(Config.MotionEventKey.ACTION_UP, changeX, changeY);
+                break;
+
+            default:
+                break;
+        }
+        return super.onTouchEvent(event);
+    }
+
 }

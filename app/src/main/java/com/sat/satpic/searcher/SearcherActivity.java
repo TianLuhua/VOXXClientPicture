@@ -129,11 +129,11 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
     }
 
     @Override
-    public void netError() {
+    public void networkError() {
         LogUtils.e(TAG, "netError");
         DialogFragment dialog = new NetworkDialog();
-        dialog.show(getFragmentManager(), "NetError");
-
+        dialog.setCancelable(false);
+        dialog.show(getFragmentManager(), "NetworkDialogFragment");
     }
 
     private void startSearchAnimation() {

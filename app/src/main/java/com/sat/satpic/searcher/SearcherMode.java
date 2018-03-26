@@ -80,7 +80,7 @@ public class SearcherMode {
                     break;
                 case Config.HandlerGlod.NET_ERROR:
                     if (callBack != null) {
-                        callBack.netError();
+                        callBack.networkError();
                     }
                     break;
 
@@ -212,7 +212,7 @@ public class SearcherMode {
         this.callBack = null;
         if (multicastSocket != null) {
             try {
-                if (broadcastAddress!=null){
+                if (broadcastAddress != null) {
 
                     multicastSocket.leaveGroup(broadcastAddress);
                 }
@@ -247,6 +247,6 @@ public class SearcherMode {
 
         public void searchOutTime();
 
-        public void netError();
+        public void networkError();
     }
 }

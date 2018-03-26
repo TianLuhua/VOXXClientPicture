@@ -44,10 +44,9 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LogUtils.e("tlh", "onCreate" );
         HideSystemUIUtils.hideSystemUI(this);
         displayPresenter = getPresenter();
-
-
         DisplayMetrics dm = getResources().getDisplayMetrics();
         int widthPixels = dm.widthPixels;
         int heightPixels = dm.heightPixels;
@@ -56,13 +55,45 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
     }
 
     @Override
+    protected void onRestart() {
+        super.onRestart();
+        LogUtils.e("tlh", "onRestart" );
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
+        LogUtils.e("tlh", "onStart" );
         remoteServiceIP = getIntent().getExtras().getString(Config.SystemKey.KEY_BUNDLE_SERVICE_IP);
         LogUtils.e(TAG, "remoteServiceIP:" + remoteServiceIP);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         if (displayPresenter != null) {
             displayPresenter.startDisPlayRomoteDesk(remoteServiceIP);
         }
+        LogUtils.e("tlh", "onResume" );
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        LogUtils.e("tlh", "onPause" );
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        LogUtils.e("tlh", "onStop" );
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        LogUtils.e("tlh", "onStop" );
     }
 
     @Override
@@ -139,9 +170,6 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
         }
         return super.onTouchEvent(event);
     }
-
-
-
 
 
 }

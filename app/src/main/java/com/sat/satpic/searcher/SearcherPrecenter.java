@@ -83,9 +83,9 @@ public class SearcherPrecenter extends AbstractPresenter<SearcherView> {
                 }
 
                 @Override
-                public void netError() {
+                public void networkError() {
                     if (getView() != null) {
-                        getView().netError();
+                        getView().networkError();
 
                     }
                 }

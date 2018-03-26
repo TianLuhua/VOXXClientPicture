@@ -21,5 +21,5 @@ public interface SearcherView extends BaseView {
 
     public void searchOutTime();
 
-    public void netError();
+    public void networkError();
 }

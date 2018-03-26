@@ -21,7 +21,7 @@ public class NetworkDialog extends DialogFragment {
                     public void onClick(DialogInterface dialog, int id) {
                         getActivity().finish();
                     }
-                }).setCancelable(false);
+                });
 
         return builder.create();
     }

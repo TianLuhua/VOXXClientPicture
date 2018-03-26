@@ -79,6 +79,9 @@ public class DisplayMode {
             public void run() {
                 try {
                     LogUtils.i(TAG, "hdb---data--连接start");
+                    if (dataSocket!=null){
+                        return;
+                    }
                     dataSocket = new Socket(serverIp, Config.PortGlob.DATAPORT);// 10.0.0.24
 
                     DataInputStream dis = new DataInputStream(

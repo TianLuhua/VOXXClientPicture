@@ -36,7 +36,6 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> {
     private byte[] jBytes;
 
 
-
     private boolean isRun = true;
     private DisplayMode displayMode;
 
@@ -72,25 +71,25 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> {
     }
 
 
-    public DisplayPresenter( ) {
-        displayMode=new DisplayMode(new DisplayMode.CallBack() {
+    public DisplayPresenter() {
+        displayMode = new DisplayMode(new DisplayMode.CallBack() {
             @Override
             public void loading() {
-                if (getView()!=null){
+                if (getView() != null) {
                     getView().loading();
                 }
             }
 
             @Override
             public void disPlayRemoteDesk(Bitmap bitmap) {
-                if (getView()!=null){
+                if (getView() != null) {
                     getView().disPlayRemoteDesk(bitmap);
                 }
             }
 
             @Override
             public void fila() {
-                if (getView()!=null){
+                if (getView() != null) {
                     getView().fila();
                 }
             }
@@ -102,8 +101,8 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> {
         });
     }
 
-    public void startDisPlayRomoteDesk(String serverIp){
-        startTouchServer( serverIp);
+    public void startDisPlayRomoteDesk(String serverIp) {
+        startTouchServer(serverIp);
         displayMode.startServer(serverIp);
     }
 
@@ -115,6 +114,7 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> {
             public void run() {
                 try {
                     LogUtils.e(TAG, "tlh--startTouchServer-:" + serverIp);
+                    if (touchSocket != null) return;
                     touchSocket = new Socket(serverIp,
                             Config.PortGlob.TOUCHPORT);
                     dos = new DataOutputStream(touchSocket.getOutputStream());
@@ -132,7 +132,7 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> {
 
 
         LogUtils.i(TAG, "sendTouchData---action:" + actionType + "  changeX:" + changeX
-                + "  changeY:" +changeY);
+                + "  changeY:" + changeY);
 
         executorService.execute(new Runnable() {
             @Override
@@ -147,9 +147,9 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> {
                         } catch (JSONException e1) {
                             e1.printStackTrace();
                         }
-                        jBytes= jObject.toString().getBytes();
+                        jBytes = jObject.toString().getBytes();
                         intToByte[0] = (byte) jBytes.length;
-                        data  = new byte[jBytes.length + 1];
+                        data = new byte[jBytes.length + 1];
                         System.arraycopy(intToByte, 0, data, 0, 1);
                         System.arraycopy(jBytes, 0, data, 1, jBytes.length);
                         LogUtils.i(TAG, "hdb----data:" + new String(data));
@@ -171,7 +171,7 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> {
     @Override
     public void detachView() {
         super.detachView();
-        if (displayMode!=null){
+        if (displayMode != null) {
             displayMode.onDestroy();
         }
     }

@@ -81,6 +81,14 @@ public class SearcherPrecenter extends AbstractPresenter<SearcherView> {
                     }
 
                 }
+
+                @Override
+                public void netError() {
+                    if (getView() != null) {
+                        getView().netError();
+
+                    }
+                }
             });
             this.mContext = mContext;
             searcherMode.searchRemoteDevices(mContext);

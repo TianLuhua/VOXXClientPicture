@@ -1,5 +1,6 @@
 package com.sat.satpic.searcher;
 
+import android.app.DialogFragment;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -18,6 +19,7 @@ import com.sat.satpic.bean.DeviceInfo;
 import com.sat.satpic.searcher.adapter.DeviceAdapter;
 import com.sat.satpic.utils.HideSystemUIUtils;
 import com.sat.satpic.utils.LogUtils;
+import com.sat.satpic.widget.NetworkDialog;
 
 import java.util.ArrayList;
 
@@ -124,6 +126,14 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
     @Override
     public void searchOutTime() {
         LogUtils.e(TAG, "searchOutTime");
+    }
+
+    @Override
+    public void netError() {
+        LogUtils.e(TAG, "netError");
+        DialogFragment dialog = new NetworkDialog();
+        dialog.show(getFragmentManager(), "NetError");
+
     }
 
     private void startSearchAnimation() {

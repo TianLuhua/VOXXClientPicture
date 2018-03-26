@@ -12,9 +12,14 @@ import java.util.ArrayList;
 public interface SearcherView extends BaseView {
 
     public void searchLoading();
+
     public void searchSuccess(ArrayList<DeviceInfo> deviceInfos);
+
     public void searchEnd();
+
     public void searchFila(String msg);
+
     public void searchOutTime();
 
+    public void netError();
 }

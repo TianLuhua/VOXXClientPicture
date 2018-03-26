@@ -78,7 +78,11 @@ public class SearcherMode {
                     }
 
                     break;
-
+                case Config.HandlerGlod.NET_ERROR:
+                    if (callBack != null) {
+                        callBack.netError();
+                    }
+                    break;
 
                 default:
                     break;
@@ -121,7 +125,12 @@ public class SearcherMode {
                     if (multicastSocket == null) {
                         multicastSocket = new MulticastSocket(
                                 Config.PortGlob.MULTIPORT);
-                        multicastSocket.joinGroup(broadcastAddress);
+                        if (broadcastAddress == null) {
+                            mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.NET_ERROR, 0);
+                        } else {
+
+                            multicastSocket.joinGroup(broadcastAddress);
+                        }
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -203,7 +212,10 @@ public class SearcherMode {
         this.callBack = null;
         if (multicastSocket != null) {
             try {
-                multicastSocket.leaveGroup(broadcastAddress);
+                if (broadcastAddress!=null){
+
+                    multicastSocket.leaveGroup(broadcastAddress);
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -235,5 +247,6 @@ public class SearcherMode {
 
         public void searchOutTime();
 
+        public void netError();
     }
 }

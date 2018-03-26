@@ -9,9 +9,8 @@
     <string name="tv_find">Looking for wireless devices</string>
     <string name="press_again">Press again to exit the program</string>
     <string name="search_success">search Success</string>
-
-
-
-
+    <string name="please_check_the_network">Please check the network</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

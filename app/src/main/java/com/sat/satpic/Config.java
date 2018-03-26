@@ -38,6 +38,7 @@ public class Config {
         public static final int START_SHOW_DATA = 6;
         public static final int IS_LOOP_SENDBROADCAST = 7;
         public static final int SHOW_IMAGEVIEW=8;
+        public static final int NET_ERROR = 9;
     }
 
     public static class SystemAction {

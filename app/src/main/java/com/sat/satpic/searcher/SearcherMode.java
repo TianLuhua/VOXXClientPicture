@@ -103,8 +103,8 @@ public class SearcherMode {
 
     private void findDevice(Context mContext) {
         try {
-            broadcastAddress = IpUtils.getBroadcastAddress(mContext);
-        } catch (UnknownHostException e) {
+            broadcastAddress = IpUtils.getBroadcastAddress();
+        } catch (IOException e) {
             e.printStackTrace();
             if (callBack != null) {
                 callBack.searchFila(e.getMessage());
@@ -139,6 +139,7 @@ public class SearcherMode {
             byte[] data = ("phoneip:" + ipAddress).getBytes();
             DatagramPacket packet = new DatagramPacket(data, data.length,
                     broadcastAddress, Config.PortGlob.MULTIPORT);
+            LogUtils.i(TAG, "hdb----send---broadcastAddress:" + broadcastAddress);
             multicastSocket.send(packet);
             receiverBack();
         }

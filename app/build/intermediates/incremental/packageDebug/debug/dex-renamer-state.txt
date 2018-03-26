@@ -1,4 +1,4 @@
-#Wed Mar 14 16:25:57 CST 2018
+#Mon Mar 26 09:28:57 CST 2018
 path.1=classes.dex
 path.0=classes.dex
 renamed.5=classes6.dex
@@ -7,12 +7,12 @@ renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.5=E\:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\13
-base.4=E\:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\16
-base.3=E\:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\11
-base.2=E\:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\14
-base.1=E\:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12
-base.0=E\:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\15
+base.5=E\:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\32
+base.4=E\:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\35
+base.3=E\:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\30
+base.2=E\:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\33
+base.1=E\:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\31
+base.0=E\:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\34
 path.5=classes.dex
 path.4=classes.dex
 path.3=classes.dex

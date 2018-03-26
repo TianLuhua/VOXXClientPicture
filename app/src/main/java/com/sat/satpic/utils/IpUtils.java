@@ -9,9 +9,11 @@ import android.net.wifi.WifiManager;
 import android.net.wifi.WifiManager.MulticastLock;
 import android.util.Log;
 
+import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
+import java.net.InterfaceAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.UnknownHostException;
@@ -120,6 +122,27 @@ public class IpUtils {
             String substring = hostIP.substring(0, hostIP.lastIndexOf(".") + 1);
             LogUtils.i("123", "hdb------substring:" + substring);
             return InetAddress.getByName(substring + "255");
+        }
+        return null;
+    }
+
+    public static InetAddress getBroadcastAddress()
+            throws IOException {
+        // 获取本地所有网络接口
+        Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+        while (interfaces.hasMoreElements()) {
+            NetworkInterface networkInterface = interfaces.nextElement();
+            if (networkInterface.isLoopback() || !networkInterface.isUp()) {
+                continue;
+            }
+            // getInterfaceAddresses()方法返回绑定到该网络接口的所有 IP 的集合
+            for (InterfaceAddress interfaceAddress : networkInterface.getInterfaceAddresses()) {
+                InetAddress broadcast = interfaceAddress.getBroadcast();
+                if (broadcast  == null) {
+                    continue;
+                }
+                return broadcast;
+            }
         }
         return null;
     }

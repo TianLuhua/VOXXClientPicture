@@ -17,8 +17,9 @@
     <string name="bt_start">Start</string>
     <string name="cancel">Cancel</string>
     <string name="hello_world">Hello world!</string>
+    <string name="network_dialog_title">Please check the network</string>
+    <string name="network_please_check_the_network">Please open the hot spot Or Connect and device the WIFI in the same network.</string>
     <string name="ok">OK</string>
-    <string name="please_check_the_network">Please check the network</string>
     <string name="press_again">Press again to exit the program</string>
     <string name="search_success">search Success</string>
     <string name="tv_find">Looking for wireless devices</string>

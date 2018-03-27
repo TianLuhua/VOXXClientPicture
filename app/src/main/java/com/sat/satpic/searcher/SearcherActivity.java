@@ -1,6 +1,7 @@
 package com.sat.satpic.searcher;
 
 import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -131,8 +132,17 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
     @Override
     public void networkError() {
         LogUtils.e(TAG, "netError");
-        DialogFragment dialog = new NetworkDialog();
+        NetworkDialog dialog = new NetworkDialog();
+        dialog.setTitle(R.string.network_dialog_title);
+        dialog.setMessage(R.string.network_please_check_the_network);
+        dialog.setPositoveButton(R.string.ok);
         dialog.setCancelable(false);
+        dialog.setNetworkDialogInterface(new NetworkDialog.NetworkDialogInterface() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                SearcherActivity.this.finish();
+            }
+        });
         dialog.show(getFragmentManager(), "NetworkDialogFragment");
     }
 

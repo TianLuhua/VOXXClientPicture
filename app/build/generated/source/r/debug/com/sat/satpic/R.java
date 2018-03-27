@@ -67,11 +67,12 @@ public final class R {
     public static final int bt_start=0x7f060003;
     public static final int cancel=0x7f060004;
     public static final int hello_world=0x7f060005;
-    public static final int ok=0x7f060006;
-    public static final int please_check_the_network=0x7f060007;
-    public static final int press_again=0x7f060008;
-    public static final int search_success=0x7f060009;
-    public static final int tv_find=0x7f06000a;
+    public static final int network_dialog_title=0x7f060006;
+    public static final int network_please_check_the_network=0x7f060007;
+    public static final int ok=0x7f060008;
+    public static final int press_again=0x7f060009;
+    public static final int search_success=0x7f06000a;
+    public static final int tv_find=0x7f06000b;
   }
   public static final class style {
     public static final int AppBaseTheme=0x7f070000;

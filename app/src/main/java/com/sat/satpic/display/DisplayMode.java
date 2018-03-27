@@ -7,6 +7,7 @@ import android.os.Handler;
 import com.sat.satpic.Config;
 import com.sat.satpic.utils.ByteUtils;
 import com.sat.satpic.utils.LogUtils;
+import com.sat.satpic.utils.ThreadUtils;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -62,19 +63,11 @@ public class DisplayMode {
     };
 
 
-    private ExecutorService executorService = newFixThreadPool(10);
-
-    private ExecutorService newFixThreadPool(int nThreads) {
-        return new ThreadPoolExecutor(nThreads, nThreads, 0L,
-                TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>());
-    }
-
-
     public void startServer(final String serverIp) {
         if (callBack != null) {
             callBack.loading();
         }
-        executorService.execute(new Runnable() {
+        ThreadUtils.getExecutorService().execute(new Runnable() {
             @Override
             public void run() {
                 try {

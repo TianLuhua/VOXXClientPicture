@@ -14,7 +14,7 @@ public class ThreadUtils {
 
     public static ExecutorService getExecutorService() {
         if (executorService == null) {
-            executorService = newFixThreadPool(15);
+            executorService = newFixThreadPool(20);
         }
         return executorService;
     }

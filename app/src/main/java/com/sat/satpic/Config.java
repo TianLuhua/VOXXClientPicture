@@ -27,6 +27,7 @@ public class Config {
 
     public static class SystemTime {
         public static long ActivityBackTime = 2000;
+        public static final int SCAN_SERVER_OUTTIME = 5000;
     }
 
     public static class HandlerGlod {

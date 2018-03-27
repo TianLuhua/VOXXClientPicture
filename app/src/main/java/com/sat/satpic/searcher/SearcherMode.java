@@ -16,8 +16,8 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
 import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
+
 
 /**
  * Created by Tianluhua on 2018/3/13.
@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class SearcherMode {
 
     public static final String TAG = "SearcherMode";
-    private static final int SCAN_SERVER_OUTTIME = 5000;
+
 
     private MulticastSocket multicastSocket;
     private InetAddress broadcastAddress;
@@ -163,7 +163,7 @@ public class SearcherMode {
 
             pack = new DatagramPacket(data, data.length);
             udpBack.receive(pack);
-            udpBack.setSoTimeout(SCAN_SERVER_OUTTIME);
+            udpBack.setSoTimeout(Config.SystemTime.SCAN_SERVER_OUTTIME);
             back = new String(pack.getData(), pack.getOffset(),
                     pack.getLength());
             if (back != null && back.startsWith("serverip:")) {

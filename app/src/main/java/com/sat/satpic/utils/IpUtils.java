@@ -133,12 +133,13 @@ public class IpUtils {
         while (interfaces.hasMoreElements()) {
             NetworkInterface networkInterface = interfaces.nextElement();
             if (networkInterface.isLoopback() || !networkInterface.isUp()) {
-                continue;
-            }
+               continue;
+           }
             // getInterfaceAddresses()方法返回绑定到该网络接口的所有 IP 的集合
             for (InterfaceAddress interfaceAddress : networkInterface.getInterfaceAddresses()) {
+
                 InetAddress broadcast = interfaceAddress.getBroadcast();
-                if (broadcast  == null) {
+                if (broadcast == null) {
                     continue;
                 }
                 return broadcast;

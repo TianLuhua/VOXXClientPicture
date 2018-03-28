@@ -24,9 +24,9 @@ public class DisplayMode {
     private Socket dataSocket;
     private boolean isRun = true;
 
-    private Bitmap bm;
-    private byte[] sendBytes;
-    private byte[] len;
+
+    private byte[] receveBytes;
+    private byte[] receveByteslen;
 
 
     private Handler mHandler = new Handler() {
@@ -45,9 +45,9 @@ public class DisplayMode {
                     }
                     break;
                 case Config.HandlerGlod.SHOW_IMAGEVIEW:
-                    if (callBack != null && bm != null) {
-                        callBack.disPlayRemoteDesk(bm);
-                    }
+//                    if (callBack != null && bm != null) {
+////                        callBack.disPlayRemoteDesk(bm);
+//                    }
                     break;
 
                 default:
@@ -93,17 +93,23 @@ public class DisplayMode {
 
     private synchronized void readFile(DataInputStream dis) throws IOException {
         LogUtils.i(TAG, "hdb---readFile");
-        len = new byte[3];
-        dis.read(len);
-        int length = ByteUtils.bufferToInt(len);
+        receveByteslen = new byte[3];
+        dis.read(receveByteslen);
+        int length = ByteUtils.bufferToInt(receveByteslen);
         LogUtils.i(TAG, "hdb---readFile--length:" + length);
-        sendBytes = new byte[length];
-        dis.readFully(sendBytes);
-        bm = BitmapFactory.decodeByteArray(sendBytes, 0, length);
+        receveBytes = new byte[length];
+        dis.readFully(receveBytes);
+        final Bitmap bm = BitmapFactory.decodeByteArray(receveBytes, 0, length);
         LogUtils.i(TAG, "hdb----接收文件<>成功-------bm:" + bm);
         if (bm != null) {
             LogUtils.i(TAG, "hdb-------bm:" + bm.getByteCount());
             mHandler.sendEmptyMessage(Config.HandlerGlod.SHOW_IMAGEVIEW);
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    callBack.disPlayRemoteDesk(bm);
+                }
+            });
         }
     }
 
@@ -127,8 +133,7 @@ public class DisplayMode {
     }
 
     public void onDestroy() {
-        sendBytes = null;
-        bm = null;
+        receveBytes = null;
         dataSocket = null;
     }
 

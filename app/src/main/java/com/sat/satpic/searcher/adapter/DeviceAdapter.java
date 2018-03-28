@@ -75,8 +75,12 @@ public class DeviceAdapter extends BaseAdapter {
         DeviceInfo deviceInfo = deviceInfos.get(position);
         String name = deviceInfo.getName();
         String address = deviceInfo.getIpAddress();
+        LogUtils.e("tlh---name.size():"+name.length());
+        LogUtils.e("tlh---address.size():"+address.length());
+
         Spannable span = new SpannableString(name + "\n" + address);
-        span.setSpan(new AbsoluteSizeSpan(60), name.length(), address.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        //让设备名称和IP地址有所区别
+        span.setSpan(new AbsoluteSizeSpan(60), name.length(),  name.length()+address.length()+1, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
         vHolder.deviceName.setText(span);
         return convertView;
     }

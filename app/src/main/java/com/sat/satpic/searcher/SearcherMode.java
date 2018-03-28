@@ -42,6 +42,8 @@ public class SearcherMode {
     private DatagramPacket pack;
     private String back;
 
+    private Object lock = new Object();
+
 
     private Handler mAsyncEventHandler = new Handler() {
 
@@ -192,17 +194,19 @@ public class SearcherMode {
                 remoteServerIp = split[1];
                 remoteName = split[2];
 
-                if (!deviceInfos.containsKey(remoteServerIp)) {
-                    DeviceInfo mDeviceInfo = new DeviceInfo(remoteServerIp, remoteName);
-                    deviceInfos.put(remoteServerIp, mDeviceInfo);
+                synchronized (lock) {
+                    if (!deviceInfos.containsKey(remoteServerIp)) {
+                        DeviceInfo mDeviceInfo = new DeviceInfo(remoteServerIp, remoteName);
+                        deviceInfos.put(remoteServerIp, mDeviceInfo);
 
-                    byte[] over = "pic".getBytes();
-                    DatagramPacket packet = new DatagramPacket(over,
-                            over.length, broadcastAddress,
-                            Config.PortGlob.MULTIPORT);
-                    multicastSocket.send(packet);
-                    mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.SCAN_DEVICE_SUCESS,
-                            0);
+                        byte[] over = "pic".getBytes();
+                        DatagramPacket packet = new DatagramPacket(over,
+                                over.length, broadcastAddress,
+                                Config.PortGlob.MULTIPORT);
+                        multicastSocket.send(packet);
+                        mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.SCAN_DEVICE_SUCESS,
+                                0);
+                    }
                 }
 
                 LogUtils.i(TAG, "hdb-------serverIp:" + remoteServerIp

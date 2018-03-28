@@ -36,15 +36,16 @@ public class Config {
         public static final int CLEAR_FAILCOUNT = 3;
         public static final int TIME_OUT = 4;
         public static final int CONNECT_FAIL = 5;
-        public static final int START_SHOW_DATA = 6;
+        public static final int SCAN_DEVICE_SUCESS = 6;
         public static final int IS_LOOP_SENDBROADCAST = 7;
-        public static final int SHOW_IMAGEVIEW=8;
+        public static final int SHOW_IMAGEVIEW = 8;
         public static final int NET_ERROR = 9;
     }
 
     public static class SystemAction {
         public static final String ACTIVITY_DISPAY_REMOTE = "com.sat.action.display.remote";
     }
+
     public static class SystemKey {
         public static final String KEY_BUNDLE_SERVICE_IP = "serverIp";
     }

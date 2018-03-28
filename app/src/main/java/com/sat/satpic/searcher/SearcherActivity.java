@@ -23,6 +23,8 @@ import com.sat.satpic.utils.LogUtils;
 import com.sat.satpic.widget.NetworkDialog;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Tianluhua on 2018/3/13.
@@ -39,7 +41,7 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
     private SearcherPrecenter searcherPrecenter;
     private DeviceAdapter deviceAdapter;
 
-    private ArrayList<DeviceInfo> remoteDeviceInfos;
+    private List<DeviceInfo> remoteDeviceInfos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +73,8 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
         searCherView = (ImageView) findViewById(R.id.iv_search);
         searCherView_text = (TextView) findViewById(R.id.iv_search_text);
         display_remote_devices_list = (ListView) findViewById(R.id.remote_device_list);
+        deviceAdapter = new DeviceAdapter(getApplicationContext());
+        display_remote_devices_list.setAdapter(deviceAdapter);
         display_remote_devices_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -91,25 +95,18 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
     @Override
     public void searchLoading() {
         LogUtils.e(TAG, "searchLoading");
-
         startSearchAnimation();
     }
 
+
     @Override
-    public void searchSuccess(ArrayList<DeviceInfo> deviceInfos) {
-        LogUtils.e(TAG, "searchSuccess:" + deviceInfos.toString());
+    public void searchSuccess(Map<String, DeviceInfo> deviceInfos) {
 
-        Toast.makeText(getApplicationContext(),
-                R.string.search_success, Toast.LENGTH_SHORT).show();
-        if (deviceAdapter == null) {
-            deviceAdapter = new DeviceAdapter(getApplicationContext(), deviceInfos);
-            display_remote_devices_list.setAdapter(deviceAdapter);
+        remoteDeviceInfos = new ArrayList<>(deviceInfos.values());
+        if (deviceAdapter != null) {
+            deviceAdapter.setDeviceInfos(remoteDeviceInfos);
+            deviceAdapter.notifyDataSetChanged();
         }
-
-        if (deviceAdapter.getDeviceInfos().size() != deviceInfos.size()) {
-            deviceAdapter.setDeviceInfos(deviceInfos);
-        }
-        this.remoteDeviceInfos = deviceInfos;
     }
 
     @Override

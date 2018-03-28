@@ -52,6 +52,10 @@
         "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\menu\\main.xml"
     },
     {
+        "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_device_icon.png.flat",
+        "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\drawable-hdpi\\device_icon.png"
+    },
+    {
         "merged": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
         "source": "E:\\workspace\\androidStudio\\VOXXClientPic\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
     },

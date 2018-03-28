@@ -1,6 +1,10 @@
 package com.sat.satpic.searcher.adapter;
 
 import android.content.Context;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.AbsoluteSizeSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -11,6 +15,9 @@ import com.sat.satpic.bean.DeviceInfo;
 import com.sat.satpic.utils.LogUtils;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Tianluhua on 2018/3/13.
@@ -22,21 +29,19 @@ public class DeviceAdapter extends BaseAdapter {
 
 
     private Context mContext;
-    private ArrayList<DeviceInfo> deviceInfos;
+    private List<DeviceInfo> deviceInfos = new ArrayList();
 
 
-    public DeviceAdapter(Context mContext, ArrayList<DeviceInfo> deviceInfos) {
+    public DeviceAdapter(Context mContext) {
         this.mContext = mContext;
-        this.deviceInfos = deviceInfos;
     }
 
-    public ArrayList<DeviceInfo> getDeviceInfos() {
+    public void setDeviceInfos(List<DeviceInfo> remoteDeviceInfos) {
+        this.deviceInfos = remoteDeviceInfos;
+    }
+
+    public List<DeviceInfo> getDeviceInfos() {
         return deviceInfos;
-    }
-
-    public void setDeviceInfos(ArrayList<DeviceInfo> deviceInfos) {
-        this.deviceInfos = deviceInfos;
-        notifyDataSetChanged();
     }
 
     @Override
@@ -67,7 +72,10 @@ public class DeviceAdapter extends BaseAdapter {
         }
         LogUtils.i(TAG, "hdb---name:" + deviceInfos.get(position).getName());
         vHolder = (ViewHolder) convertView.getTag();
-        vHolder.deviceName.setText(deviceInfos.get(position).getName());
+        DeviceInfo deviceInfo = deviceInfos.get(position);
+        Spannable span = new SpannableString(deviceInfo.getName() + "\n" + deviceInfo.getIpAddress());
+        span.setSpan(new AbsoluteSizeSpan(60), 12, 26, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        vHolder.deviceName.setText(span);
         return convertView;
     }
 

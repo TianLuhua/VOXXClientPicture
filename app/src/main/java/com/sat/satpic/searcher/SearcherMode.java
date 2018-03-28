@@ -17,6 +17,8 @@ import java.net.InetAddress;
 import java.net.MulticastSocket;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -31,8 +33,9 @@ public class SearcherMode {
     private MulticastSocket multicastSocket;
     private InetAddress broadcastAddress;
     private DatagramSocket udpBack;
-    private ArrayList<DeviceInfo> remoteDeviceInfos;
+    private Map<String, DeviceInfo> deviceInfos;
     private String remoteServerIp;
+    private String remoteName;
     private CallBack callBack;
 
     private boolean isLoopSendBraodCast = true;
@@ -46,14 +49,14 @@ public class SearcherMode {
         public void handleMessage(Message msg) {
 
             switch (msg.what) {
-
-                case Config.HandlerGlod.SCAN_IP_OVER:
-                    if (callBack != null) {
-                        callBack.searchSuccess(remoteDeviceInfos);
+                case Config.HandlerGlod.SCAN_DEVICE_SUCESS:
+                    if (callBack != null && deviceInfos != null) {
+                        callBack.searchSuccess(deviceInfos);
                         callBack.searchEnd();
                     }
 
                     break;
+
                 case Config.HandlerGlod.TIME_OUT:
                     if (callBack != null) {
                         callBack.searchOutTime();
@@ -97,8 +100,8 @@ public class SearcherMode {
         if (callBack != null) {
             callBack.searchLoading();
         }
-        remoteDeviceInfos = new ArrayList<DeviceInfo>();
-        mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.IS_LOOP_SENDBROADCAST, 2000);
+        deviceInfos = new HashMap<>();
+        mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.IS_LOOP_SENDBROADCAST, 500);
         findDevice(mContext);
         startUdpBroadcast();
 
@@ -169,23 +172,23 @@ public class SearcherMode {
             if (back != null && back.startsWith("serverip:")) {
                 String[] split = back.split(":");
                 remoteServerIp = split[1];
+                remoteName = split[2];
 
-                if (!hasDeviceInfo(remoteDeviceInfos, remoteServerIp)) {
-                    LogUtils.i(TAG, "hdb-------in:");
-                    DeviceInfo mDeviceInfo = new DeviceInfo(remoteServerIp, split[2]);
-                    remoteDeviceInfos.add(mDeviceInfo);
+                if (!deviceInfos.containsKey(remoteServerIp)) {
+                    DeviceInfo mDeviceInfo = new DeviceInfo(remoteServerIp, remoteName);
+                    deviceInfos.put(remoteServerIp, mDeviceInfo);
 
                     byte[] over = "pic".getBytes();
                     DatagramPacket packet = new DatagramPacket(over,
                             over.length, broadcastAddress,
                             Config.PortGlob.MULTIPORT);
                     multicastSocket.send(packet);
-                    mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.SCAN_IP_OVER,
-                            2000);
+                    mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.SCAN_DEVICE_SUCESS,
+                            0);
                 }
+
                 LogUtils.i(TAG, "hdb-------serverIp:" + remoteServerIp
                         + "   split[2]:" + split[2]);
-
             }
 
         } catch (Exception e) {
@@ -196,17 +199,6 @@ public class SearcherMode {
         }
 
     }
-
-
-    private boolean hasDeviceInfo(ArrayList<DeviceInfo> Infos, String ip) {
-        for (int i = 0; i < Infos.size(); i++) {
-            if (ip != null && ip.equals(Infos.get(i).getIpAddress())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
 
     public void onDestroy() {
         this.callBack = null;
@@ -239,7 +231,7 @@ public class SearcherMode {
 
         public void searchLoading();
 
-        public void searchSuccess(ArrayList<DeviceInfo> deviceInfos);
+        public void searchSuccess(Map<String, DeviceInfo> deviceInfos);
 
         public void searchEnd();
 

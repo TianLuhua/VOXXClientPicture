@@ -16,7 +16,6 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
 import java.net.SocketTimeoutException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,7 +49,7 @@ public class SearcherMode {
 
             switch (msg.what) {
                 case Config.HandlerGlod.SCAN_DEVICE_SUCESS:
-                    if (callBack != null && deviceInfos != null) {
+                    if (callBack != null && deviceInfos != null && deviceInfos.size() > 0) {
                         callBack.searchSuccess(deviceInfos);
                         callBack.searchEnd();
                     }
@@ -77,7 +76,7 @@ public class SearcherMode {
                     });
 
                     if (isLoopSendBraodCast) {
-                        mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.IS_LOOP_SENDBROADCAST, 2000);
+                        mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.IS_LOOP_SENDBROADCAST, 1000);
                     }
 
                     break;
@@ -86,6 +85,13 @@ public class SearcherMode {
                         callBack.networkError();
                     }
                     break;
+
+                case Config.HandlerGlod.SEARCHER_TIMEOUT:
+                    if (callBack != null) {
+                        callBack.searchOutTime();
+                    }
+                    break;
+
 
                 default:
                     break;
@@ -102,6 +108,12 @@ public class SearcherMode {
         }
         deviceInfos = new HashMap<>();
         mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.IS_LOOP_SENDBROADCAST, 500);
+
+        //开始计时，系统超时时间默认为5s
+        if (!mAsyncEventHandler.hasMessages(Config.HandlerGlod.SEARCHER_TIMEOUT)) {
+            mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.SEARCHER_TIMEOUT,
+                    Config.SystemTime.SCAN_SERVER_OUTTIME);
+        }
         findDevice(mContext);
         startUdpBroadcast();
 
@@ -167,9 +179,14 @@ public class SearcherMode {
 
             pack = new DatagramPacket(data, data.length);
             udpBack.receive(pack);
-            udpBack.setSoTimeout(Config.SystemTime.SCAN_SERVER_OUTTIME);
+//            udpBack.setSoTimeout(Config.SystemTime.SCAN_SERVER_OUTTIME);
             back = new String(pack.getData(), pack.getOffset(),
                     pack.getLength());
+
+            //收到服务器的答复，取消超时任务
+            if (!back.isEmpty() && mAsyncEventHandler.hasMessages(Config.HandlerGlod.SEARCHER_TIMEOUT)) {
+                mAsyncEventHandler.removeMessages(Config.HandlerGlod.SEARCHER_TIMEOUT);
+            }
             if (back != null && back.startsWith("serverip:")) {
                 String[] split = back.split(":");
                 remoteServerIp = split[1];
@@ -218,10 +235,7 @@ public class SearcherMode {
             udpBack.close();
         }
         isLoopSendBraodCast = false;
-
-
     }
-
 
     public void setCallBack(CallBack callBack) {
         this.callBack = callBack;

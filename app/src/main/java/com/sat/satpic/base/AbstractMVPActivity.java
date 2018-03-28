@@ -35,7 +35,9 @@ public abstract class AbstractMVPActivity<V extends BaseView, P extends Abstract
         setContentView(getContentViewID());
         initView();
     }
+
     protected abstract int getContentViewID();
+
     protected abstract void initView();
 
     @Override
@@ -63,7 +65,7 @@ public abstract class AbstractMVPActivity<V extends BaseView, P extends Abstract
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if ((System.currentTimeMillis() - mExitTime) > Config.SystemTime.ActivityBackTime) {
+            if ((System.currentTimeMillis() - mExitTime) > Config.SystemTime.ACTIVITY_BACKTIME) {
                 Toast.makeText(this, getResources().getString(R.string.press_again), Toast.LENGTH_SHORT).show();
                 mExitTime = System.currentTimeMillis();// update mExitTime
             } else {

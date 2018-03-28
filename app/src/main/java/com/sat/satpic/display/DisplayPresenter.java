@@ -6,6 +6,7 @@ import android.os.Handler;
 import com.sat.satpic.Config;
 import com.sat.satpic.base.AbstractPresenter;
 import com.sat.satpic.utils.LogUtils;
+import com.sat.satpic.utils.ThreadUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,10 +14,6 @@ import org.json.JSONObject;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Tianluhua on 2018/3/13.
@@ -26,7 +23,6 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> {
 
     public static final String TAG = "DisplayPresenter";
 
-    private String serverIp;
     private Socket touchSocket;
     private DataOutputStream dos;
 
@@ -35,8 +31,6 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> {
     private byte[] data;
     private byte[] jBytes;
 
-
-    private boolean isRun = true;
     private DisplayMode displayMode;
 
     private Handler mHandler = new Handler() {
@@ -62,13 +56,6 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> {
 
         ;
     };
-
-    private ExecutorService executorService = newFixThreadPool(10);
-
-    private ExecutorService newFixThreadPool(int nThreads) {
-        return new ThreadPoolExecutor(nThreads, nThreads, 0L,
-                TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>());
-    }
 
 
     public DisplayPresenter() {
@@ -98,6 +85,11 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> {
             public void connectSucess() {
 
             }
+
+            @Override
+            public void displayTimeout() {
+
+            }
         });
     }
 
@@ -109,7 +101,7 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> {
 
     private void startTouchServer(final String serverIp) {
 
-        executorService.execute(new Runnable() {
+        ThreadUtils.getExecutorService().execute(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -134,7 +126,7 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> {
         LogUtils.i(TAG, "sendTouchData---action:" + actionType + "  changeX:" + changeX
                 + "  changeY:" + changeY);
 
-        executorService.execute(new Runnable() {
+        ThreadUtils.getExecutorService().execute(new Runnable() {
             @Override
             public void run() {
                 if (dos != null) {

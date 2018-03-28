@@ -73,7 +73,8 @@ public final class R {
     public static final int ok=0x7f060008;
     public static final int press_again=0x7f060009;
     public static final int search_success=0x7f06000a;
-    public static final int tv_find=0x7f06000b;
+    public static final int searcher_out_time_title=0x7f06000b;
+    public static final int tv_find=0x7f06000c;
   }
   public static final class style {
     public static final int AppBaseTheme=0x7f070000;

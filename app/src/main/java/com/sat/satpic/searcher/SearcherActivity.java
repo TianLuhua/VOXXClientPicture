@@ -1,6 +1,6 @@
 package com.sat.satpic.searcher;
 
-import android.app.DialogFragment;
+import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
@@ -43,11 +43,14 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
 
     private List<DeviceInfo> remoteDeviceInfos;
 
+    private FragmentManager fragmentManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         HideSystemUIUtils.hideSystemUI(this);
         searcherPrecenter = getPresenter();
+        fragmentManager = getFragmentManager();
     }
 
     @Override
@@ -107,6 +110,8 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
             deviceAdapter.setDeviceInfos(remoteDeviceInfos);
             deviceAdapter.notifyDataSetChanged();
         }
+
+
     }
 
     @Override
@@ -124,23 +129,30 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
     @Override
     public void searchOutTime() {
         LogUtils.e(TAG, "searchOutTime");
+        showNetworkDialogFragment(R.string.searcher_out_time_title, R.string.network_please_check_the_network);
     }
 
     @Override
     public void networkError() {
         LogUtils.e(TAG, "netError");
-        NetworkDialog dialog = new NetworkDialog();
-        dialog.setTitle(R.string.network_dialog_title);
-        dialog.setMessage(R.string.network_please_check_the_network);
-        dialog.setPositoveButton(R.string.ok);
-        dialog.setCancelable(false);
-        dialog.setNetworkDialogInterface(new NetworkDialog.NetworkDialogInterface() {
-            @Override
-            public void onClick(DialogInterface dialog, int id) {
-                SearcherActivity.this.finish();
-            }
-        });
-        dialog.show(getFragmentManager(), "NetworkDialogFragment");
+        showNetworkDialogFragment(R.string.network_dialog_title, R.string.network_please_check_the_network);
+    }
+
+    private void showNetworkDialogFragment(int titleID, int messageID) {
+        if (fragmentManager.findFragmentByTag("NetworkDialogFragment") == null) {
+            NetworkDialog dialog = new NetworkDialog();
+            dialog.setTitle(titleID);
+            dialog.setMessage(messageID);
+            dialog.setPositoveButton(R.string.ok);
+            dialog.setCancelable(false);
+            dialog.setNetworkDialogInterface(new NetworkDialog.NetworkDialogInterface() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+                    SearcherActivity.this.finish();
+                }
+            });
+            dialog.show(fragmentManager, "NetworkDialogFragment");
+        }
     }
 
     private void startSearchAnimation() {

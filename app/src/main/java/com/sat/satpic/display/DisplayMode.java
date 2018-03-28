@@ -12,10 +12,6 @@ import com.sat.satpic.utils.ThreadUtils;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Tianluhua on 2018/3/13.
@@ -72,7 +68,7 @@ public class DisplayMode {
             public void run() {
                 try {
                     LogUtils.i(TAG, "hdb---data--连接start");
-                    if (dataSocket!=null){
+                    if (dataSocket != null) {
                         return;
                     }
                     dataSocket = new Socket(serverIp, Config.PortGlob.DATAPORT);// 10.0.0.24
@@ -126,6 +122,8 @@ public class DisplayMode {
         public void fila();
 
         public void connectSucess();
+
+        public void displayTimeout();
     }
 
     public void onDestroy() {

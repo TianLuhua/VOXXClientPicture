@@ -26,8 +26,8 @@ public class Config {
 
 
     public static class SystemTime {
-        public static long ActivityBackTime = 2000;
-        public static final int SCAN_SERVER_OUTTIME = 5000;
+        public static final long ACTIVITY_BACKTIME = 2000;
+        public static final int SCAN_SERVER_OUTTIME = 20000;
     }
 
     public static class HandlerGlod {
@@ -40,6 +40,7 @@ public class Config {
         public static final int IS_LOOP_SENDBROADCAST = 7;
         public static final int SHOW_IMAGEVIEW = 8;
         public static final int NET_ERROR = 9;
+        public static final int SEARCHER_TIMEOUT = 10;
     }
 
     public static class SystemAction {

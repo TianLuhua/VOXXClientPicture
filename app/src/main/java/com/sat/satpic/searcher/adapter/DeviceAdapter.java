@@ -73,8 +73,10 @@ public class DeviceAdapter extends BaseAdapter {
         LogUtils.i(TAG, "hdb---name:" + deviceInfos.get(position).getName());
         vHolder = (ViewHolder) convertView.getTag();
         DeviceInfo deviceInfo = deviceInfos.get(position);
-        Spannable span = new SpannableString(deviceInfo.getName() + "\n" + deviceInfo.getIpAddress());
-        span.setSpan(new AbsoluteSizeSpan(60), 12, 26, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        String name = deviceInfo.getName();
+        String address = deviceInfo.getIpAddress();
+        Spannable span = new SpannableString(name + "\n" + address);
+        span.setSpan(new AbsoluteSizeSpan(60), name.length(), address.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
         vHolder.deviceName.setText(span);
         return convertView;
     }

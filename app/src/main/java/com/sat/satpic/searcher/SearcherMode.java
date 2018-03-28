@@ -137,6 +137,7 @@ public class SearcherMode {
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
+//                    mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.NET_ERROR, 0);
 
                 }
             }

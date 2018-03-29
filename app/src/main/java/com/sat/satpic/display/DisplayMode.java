@@ -129,7 +129,6 @@ public class DisplayMode {
 
         public void connectSucess();
 
-        public void displayTimeout();
     }
 
     public void onDestroy() {

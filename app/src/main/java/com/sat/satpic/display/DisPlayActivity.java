@@ -1,5 +1,8 @@
 package com.sat.satpic.display;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -16,9 +19,11 @@ import android.widget.ProgressBar;
 import com.sat.satpic.Config;
 import com.sat.satpic.R;
 import com.sat.satpic.base.AbstractMVPActivity;
+import com.sat.satpic.searcher.SearcherActivity;
 import com.sat.satpic.utils.HideSystemUIUtils;
 import com.sat.satpic.utils.LogUtils;
 import com.sat.satpic.widget.ImageSurfaceView;
+import com.sat.satpic.widget.NetworkDialog;
 
 /**
  * Created by Tianluhua on 2018/3/13.
@@ -41,13 +46,16 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
     private int changeX = 0;
     private int changeY = 0;
 
+    private FragmentManager fragmentManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LogUtils.e("tlh", "onCreate" );
+        LogUtils.e("tlh", "onCreate");
         HideSystemUIUtils.hideSystemUI(this);
         displayPresenter = getPresenter();
         DisplayMetrics dm = getResources().getDisplayMetrics();
+        fragmentManager = getFragmentManager();
         int widthPixels = dm.widthPixels;
         int heightPixels = dm.heightPixels;
         densityX = 1024f / (float) widthPixels;
@@ -57,13 +65,13 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
     @Override
     protected void onRestart() {
         super.onRestart();
-        LogUtils.e("tlh", "onRestart" );
+        LogUtils.e("tlh", "onRestart");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        LogUtils.e("tlh", "onStart" );
+        LogUtils.e("tlh", "onStart");
         remoteServiceIP = getIntent().getExtras().getString(Config.SystemKey.KEY_BUNDLE_SERVICE_IP);
         LogUtils.e(TAG, "remoteServiceIP:" + remoteServiceIP);
 
@@ -74,26 +82,31 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
         super.onResume();
         if (displayPresenter != null) {
             displayPresenter.startDisPlayRomoteDesk(remoteServiceIP);
+            displayPresenter.startChekcoutHotSpotChange();
         }
-        LogUtils.e("tlh", "onResume" );
+        LogUtils.e("tlh", "onResume");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        LogUtils.e("tlh", "onPause" );
+
+        LogUtils.e("tlh", "onPause");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        LogUtils.e("tlh", "onStop" );
+        LogUtils.e("tlh", "onStop");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        LogUtils.e("tlh", "onStop" );
+        if (displayPresenter != null) {
+            displayPresenter.removeChekcoutHotSpotChange();
+        }
+        LogUtils.e("tlh", "onStop");
     }
 
     @Override
@@ -109,7 +122,7 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
 
     @Override
     protected DisplayPresenter createPresenter() {
-        return new DisplayPresenter();
+        return new DisplayPresenter(getApplicationContext());
     }
 
 
@@ -128,6 +141,7 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
             displayRemoteDeviceWaitProgress.setVisibility(View.GONE);
         }
         LogUtils.e(TAG, "disPlayRemoteDesk---Bitmap:" + bitmap.getByteCount());
+        cancelNetworkDialogFragment();
         displayRemoteDeviceSurface.setBitmap(bitmap);
     }
 
@@ -135,13 +149,50 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
     @Override
     public void fila() {
         LogUtils.e(TAG, "fila");
+        showNetworkDialogFragment(R.string.display_connect_fail, R.string.display_connect_fail_message);
     }
+
 
     @Override
     public void connectSucess() {
         LogUtils.e(TAG, "connectSucess");
+        cancelNetworkDialogFragment();
     }
 
+    @Override
+    public void displayTimeout() {
+        LogUtils.e(TAG, "displayTimeout");
+        showNetworkDialogFragment(R.string.display_lost_host, R.string.network_please_check_the_network);
+    }
+
+
+    private void showNetworkDialogFragment(int titleID, int messageID) {
+        if (fragmentManager.findFragmentByTag(Config.ErrorDialogKey.DISPALY_DIALOG_FRAGMENT) == null) {
+            NetworkDialog dialog = new NetworkDialog();
+            dialog.setTitle(titleID);
+            dialog.setMessage(messageID);
+            dialog.setPositoveButton(R.string.ok);
+            dialog.setCancelable(false);
+            dialog.setNetworkDialogInterface(new NetworkDialog.NetworkDialogInterface() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+                    DisPlayActivity.this.finish();
+                }
+            });
+            dialog.show(fragmentManager, Config.ErrorDialogKey.DISPALY_DIALOG_FRAGMENT);
+        }
+    }
+
+    /**
+     * 当服务器有数据时，确保错误对话框不显示
+     */
+    private void cancelNetworkDialogFragment() {
+        Fragment fragment = fragmentManager.findFragmentByTag(Config.ErrorDialogKey.DISPALY_DIALOG_FRAGMENT);
+        if (fragment != null) {
+            LogUtils.e(TAG, "cancelNetworkDialogFragment");
+            fragmentManager.beginTransaction().remove(fragment).commit();
+        }
+    }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -170,6 +221,5 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
         }
         return super.onTouchEvent(event);
     }
-
 
 }

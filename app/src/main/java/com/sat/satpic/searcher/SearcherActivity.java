@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sat.satpic.Config;
 import com.sat.satpic.R;
 import com.sat.satpic.base.AbstractMVPActivity;
 import com.sat.satpic.bean.DeviceInfo;
@@ -139,7 +140,7 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
     }
 
     private void showNetworkDialogFragment(int titleID, int messageID) {
-        if (fragmentManager.findFragmentByTag("NetworkDialogFragment") == null) {
+        if (fragmentManager.findFragmentByTag(Config.ErrorDialogKey.NETWORP_DIALOG_FRAGMENT) == null) {
             NetworkDialog dialog = new NetworkDialog();
             dialog.setTitle(titleID);
             dialog.setMessage(messageID);
@@ -151,7 +152,7 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
                     SearcherActivity.this.finish();
                 }
             });
-            dialog.show(fragmentManager, "NetworkDialogFragment");
+            dialog.show(fragmentManager, Config.ErrorDialogKey.NETWORP_DIALOG_FRAGMENT);
         }
     }
 

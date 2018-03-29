@@ -16,6 +16,9 @@
     <string name="bt_find">Find</string>
     <string name="bt_start">Start</string>
     <string name="cancel">Cancel</string>
+    <string name="display_connect_fail">Connection Failed</string>
+    <string name="display_connect_fail_message">Please close one or more and then retry this operation</string>
+    <string name="display_lost_host">Lost host</string>
     <string name="hello_world">Hello world!</string>
     <string name="network_dialog_title">Please check the network</string>
     <string name="network_please_check_the_network">Please open the hot spot Or Connect and device the WIFI in the same network.</string>

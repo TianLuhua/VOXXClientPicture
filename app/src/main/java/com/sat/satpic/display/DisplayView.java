@@ -18,4 +18,6 @@ public interface DisplayView extends BaseView {
     public void fila();
 
     public void connectSucess();
+
+    public void displayTimeout();
 }

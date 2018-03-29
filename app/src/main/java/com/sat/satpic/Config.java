@@ -16,6 +16,11 @@ public class Config {
         public static final int ACTION_UP = 1;
     }
 
+    public static class ErrorDialogKey {
+        public static final String DISPALY_DIALOG_FRAGMENT = "DiaplayDialogFragment";
+        public static final String NETWORP_DIALOG_FRAGMENT = "NetworkDialogFragment";
+    }
+
     public static class PortGlob {
         public static final int MULTIPORT = 9696;
         public static final int DATAPORT = 8686;
@@ -28,6 +33,8 @@ public class Config {
     public static class SystemTime {
         public static final long ACTIVITY_BACKTIME = 2000;
         public static final int SCAN_SERVER_OUTTIME = 20000;
+        public static final int CHECKOUT_DISPLAY_TIMEOUT = 4000;
+        public static final int CHECKOUT_DISPLAY_TIMEOUT_DELAY = 0;
     }
 
     public static class HandlerGlod {

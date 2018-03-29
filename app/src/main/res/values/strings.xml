@@ -12,6 +12,9 @@
     <string name="network_please_check_the_network">Please open the hot spot Or Connect and device the WIFI in the same network.</string>
     <string name="network_dialog_title">Please check the network</string>
     <string name="searcher_out_time_title">Search Timeout</string>
+    <string name="display_lost_host">Lost host</string>
+    <string name="display_connect_fail">Connection Failed</string>
+    <string name="display_connect_fail_message">Please close one or more and then retry this operation</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
 

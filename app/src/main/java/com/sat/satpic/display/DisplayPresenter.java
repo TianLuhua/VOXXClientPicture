@@ -199,6 +199,8 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
     @Override
     public void hotspotHasChanged(ArrayList<ClientScanResult> clients) {
         LogUtils.e(TAG, "hotspotHasChanged");
+        //如果app处于后台时，getView()会返回null
+        if (Config.isFullScreen)
         for (ClientScanResult clientScanResult : clients) {
             //代表设备是通热点链接到手机。因为设备的信息会保存到手机上，当设备连接手机的热点的时候。
             if (serverIp.equals(clientScanResult.getIpAddr())) {

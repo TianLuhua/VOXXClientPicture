@@ -4,22 +4,15 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
-import android.view.SurfaceHolder;
 import android.view.View;
 import android.widget.ProgressBar;
 
 import com.sat.satpic.Config;
 import com.sat.satpic.R;
 import com.sat.satpic.base.AbstractMVPActivity;
-import com.sat.satpic.searcher.SearcherActivity;
 import com.sat.satpic.utils.HideSystemUIUtils;
 import com.sat.satpic.utils.LogUtils;
 import com.sat.satpic.widget.ImageSurfaceView;
@@ -80,6 +73,7 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
     @Override
     protected void onResume() {
         super.onResume();
+        Config.isFullScreen = true;
         if (displayPresenter != null) {
             displayPresenter.startDisPlayRomoteDesk(remoteServiceIP);
             displayPresenter.startChekcoutHotSpotChange();
@@ -149,7 +143,7 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
     @Override
     public void fila() {
         LogUtils.e(TAG, "fila");
-        showNetworkDialogFragment(R.string.display_connect_fail, R.string.display_connect_fail_message);
+            showNetworkDialogFragment(R.string.display_connect_fail, R.string.display_connect_fail_message);
     }
 
 
@@ -167,31 +161,42 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
 
 
     private void showNetworkDialogFragment(int titleID, int messageID) {
-        if (fragmentManager.findFragmentByTag(Config.ErrorDialogKey.DISPALY_DIALOG_FRAGMENT) == null) {
-            NetworkDialog dialog = new NetworkDialog();
-            dialog.setTitle(titleID);
-            dialog.setMessage(messageID);
-            dialog.setPositoveButton(R.string.ok);
-            dialog.setCancelable(false);
-            dialog.setNetworkDialogInterface(new NetworkDialog.NetworkDialogInterface() {
-                @Override
-                public void onClick(DialogInterface dialog, int id) {
-                    DisPlayActivity.this.finish();
-                }
-            });
-            dialog.show(fragmentManager, Config.ErrorDialogKey.DISPALY_DIALOG_FRAGMENT);
-        }
+        LogUtils.e(TAG, "showNetworkDialogFragment--111111111111111");
+        if (Config.isFullScreen)
+            if (fragmentManager.findFragmentByTag(Config.ErrorDialogKey.DISPALY_DIALOG_FRAGMENT) == null) {
+                NetworkDialog dialog = new NetworkDialog();
+                dialog.setTitle(titleID);
+                dialog.setMessage(messageID);
+                dialog.setPositoveButton(R.string.ok);
+                dialog.setCancelable(false);
+                dialog.setNetworkDialogInterface(new NetworkDialog.NetworkDialogInterface() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        DisPlayActivity.this.finish();
+                    }
+                });
+                dialog.show(fragmentManager, Config.ErrorDialogKey.DISPALY_DIALOG_FRAGMENT);
+            }
     }
 
     /**
      * 当服务器有数据时，确保错误对话框不显示
      */
     private void cancelNetworkDialogFragment() {
-        Fragment fragment = fragmentManager.findFragmentByTag(Config.ErrorDialogKey.DISPALY_DIALOG_FRAGMENT);
-        if (fragment != null) {
-            LogUtils.e(TAG, "cancelNetworkDialogFragment");
-            fragmentManager.beginTransaction().remove(fragment).commit();
+        if (Config.isFullScreen) {
+            Fragment fragment = fragmentManager.findFragmentByTag(Config.ErrorDialogKey.DISPALY_DIALOG_FRAGMENT);
+            if (fragment != null) {
+                LogUtils.e(TAG, "cancelNetworkDialogFragment");
+                fragmentManager.beginTransaction().remove(fragment).commit();
+            }
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Config.isFullScreen = false;
+        LogUtils.e(TAG, "onSaveInstanceState");
     }
 
     @Override

@@ -6,6 +6,9 @@ package com.sat.satpic;
 
 public class Config {
 
+   //用于管理Activity处于onPause状态时，不显示Dialog的标志
+    public static boolean isFullScreen = false;
+
     public static class MotionEventKey {
         public static final String JACTION = "action";
         public static final String JX = "x";
@@ -57,4 +60,6 @@ public class Config {
     public static class SystemKey {
         public static final String KEY_BUNDLE_SERVICE_IP = "serverIp";
     }
+
+
 }

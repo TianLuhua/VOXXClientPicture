@@ -62,6 +62,7 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
     @Override
     protected void onStart() {
         super.onStart();
+        Config.isFullScreen = true;
         startSearchService();
 
     }
@@ -140,6 +141,7 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
     }
 
     private void showNetworkDialogFragment(int titleID, int messageID) {
+        if (Config.isFullScreen)
         if (fragmentManager.findFragmentByTag(Config.ErrorDialogKey.NETWORP_DIALOG_FRAGMENT) == null) {
             NetworkDialog dialog = new NetworkDialog();
             dialog.setTitle(titleID);
@@ -190,5 +192,11 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
             display_remote_devices_list.setVisibility(View.VISIBLE);
         }
 
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Config.isFullScreen = false;
     }
 }

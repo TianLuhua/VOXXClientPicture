@@ -28,6 +28,8 @@ public class DisplayMode {
     private byte[] receveBytes;
     private byte[] receveByteslen;
 
+    private Bitmap bm;
+
 
     private Handler mHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
@@ -45,9 +47,9 @@ public class DisplayMode {
                     }
                     break;
                 case Config.HandlerGlod.SHOW_IMAGEVIEW:
-//                    if (callBack != null && bm != null) {
-////                        callBack.disPlayRemoteDesk(bm);
-//                    }
+                    if (callBack != null && bm != null) {
+                        callBack.disPlayRemoteDesk(bm);
+                    }
                     break;
 
                 default:
@@ -99,17 +101,11 @@ public class DisplayMode {
         LogUtils.i(TAG, "hdb---readFile--length:" + length);
         receveBytes = new byte[length];
         dis.readFully(receveBytes);
-        final Bitmap bm = BitmapFactory.decodeByteArray(receveBytes, 0, length);
+        bm = BitmapFactory.decodeByteArray(receveBytes, 0, length);
         LogUtils.i(TAG, "hdb----接收文件<>成功-------bm:" + bm);
         if (bm != null) {
             LogUtils.i(TAG, "hdb-------bm:" + bm.getByteCount());
             mHandler.sendEmptyMessage(Config.HandlerGlod.SHOW_IMAGEVIEW);
-            mHandler.post(new Runnable() {
-                @Override
-                public void run() {
-                    callBack.disPlayRemoteDesk(bm);
-                }
-            });
         }
     }
 

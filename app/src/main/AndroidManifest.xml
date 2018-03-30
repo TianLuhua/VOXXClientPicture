@@ -34,6 +34,7 @@
             android:name=".display.DisPlayActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="com.sat.action.display.remote" />

@@ -3,6 +3,7 @@ package com.sat.satpic.display;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -100,7 +101,7 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
         if (displayPresenter != null) {
             displayPresenter.removeChekcoutHotSpotChange();
         }
-        LogUtils.e("tlh", "onStop");
+        LogUtils.e("tlh", "onDestroy");
     }
 
     @Override
@@ -227,4 +228,8 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
         return super.onTouchEvent(event);
     }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
 }

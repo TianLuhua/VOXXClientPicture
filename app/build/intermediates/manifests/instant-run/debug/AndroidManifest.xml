@@ -34,6 +34,7 @@
         </activity>
         <activity
             android:name="com.sat.satpic.display.DisPlayActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >

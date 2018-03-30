@@ -84,6 +84,8 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
             public void disPlayRemoteDesk(Bitmap bitmap) {
                 if (getView() != null) {
                     getView().disPlayRemoteDesk(bitmap);
+                }else {
+                   throw  new NullPointerException("DisplayPresenter ---> disPlayRemoteDesk --->getView()==null ");
                 }
             }
 
@@ -117,13 +119,13 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
      * 监听热点连接情况
      */
     public void startChekcoutHotSpotChange() {
-        LogUtils.e("tlh", "startChekcoutHotSpotChange");
+        LogUtils.e("tlh", "startChekcoutHotSpotChange--111");
         startChekcoutHotSpotChange(Config.SystemTime.CHECKOUT_DISPLAY_TIMEOUT_DELAY, Config.SystemTime.CHECKOUT_DISPLAY_TIMEOUT);
     }
 
     public void startChekcoutHotSpotChange(long delay, long period) {
         if (checkHotSpotTimer != null) {
-            LogUtils.e(TAG, "startChekcoutHotSpotChange");
+            LogUtils.e("tlh", "startChekcoutHotSpotChange----222");
             CheckHotspotChangTask checkHotspotChangTask = new CheckHotspotChangTask(mContext);
             checkHotspotChangTask.setCallBack(this);
             checkHotSpotTimer.scheduleAtFixedRate(checkHotspotChangTask, delay, period);

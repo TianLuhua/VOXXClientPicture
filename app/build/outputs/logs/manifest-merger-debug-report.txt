@@ -1,12 +1,12 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-45:12
+ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-46:12
 	package
 		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:3:5-29
 		INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml
@@ -52,7 +52,7 @@ ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest
 	android:name
 		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:14:22-83
 application
-ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:16:5-43:19
+ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:16:5-44:19
 	android:label
 		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:20:9-41
 	android:icon
@@ -84,22 +84,24 @@ ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest
 	android:name
 		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:30:27-74
 activity#com.sat.satpic.display.DisPlayActivity
-ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:33:9-42:20
+ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:33:9-43:20
 	android:screenOrientation
 		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:36:13-50
 	android:launchMode
 		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:35:13-44
+	android:configChanges
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:37:13-74
 	android:theme
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:37:13-77
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:38:13-77
 	android:name
 		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:34:13-52
 intent-filter#android.intent.category.DEFAULT+com.sat.action.display.remote
-ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:38:13-41:29
+ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:39:13-42:29
 action#com.sat.action.display.remote
-ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:39:17-72
+ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:40:17-72
 	android:name
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:39:25-69
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:40:25-69
 category#android.intent.category.DEFAULT
-ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:40:17-75
+ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:41:17-75
 	android:name
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:40:27-73
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:41:27-73

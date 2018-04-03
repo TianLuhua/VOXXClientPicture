@@ -20,6 +20,7 @@ public class VersionNumberUtils {
             String versionName = info.versionName;
             int versionCode = info.versionCode;
             builder.append(versionName);
+            builder.append(".");
             builder.append(versionCode);
             return builder.toString();
         } catch (Exception e) {

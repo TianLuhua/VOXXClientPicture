@@ -35,4 +35,13 @@
         android:textColor="@drawable/color_pink"
         android:textSize="20sp" />
 
+    <TextView
+        android:id="@+id/iv_search_version_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_search_text"
+        android:layout_centerHorizontal="true"
+        android:textColor="@drawable/color_pink"
+        android:textSize="15sp" />
+
 </RelativeLayout>

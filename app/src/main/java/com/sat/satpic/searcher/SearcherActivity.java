@@ -21,7 +21,10 @@ import com.sat.satpic.bean.DeviceInfo;
 import com.sat.satpic.searcher.adapter.DeviceAdapter;
 import com.sat.satpic.utils.HideSystemUIUtils;
 import com.sat.satpic.utils.LogUtils;
+import com.sat.satpic.utils.VersionNumberUtils;
 import com.sat.satpic.widget.NetworkDialog;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +41,7 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
     private ListView display_remote_devices_list;
     private ImageView searCherView;
     private TextView searCherView_text;
+    private TextView versionNumber;
 
     private SearcherPrecenter searcherPrecenter;
     private DeviceAdapter deviceAdapter;
@@ -77,6 +81,8 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
     protected void initView() {
         searCherView = (ImageView) findViewById(R.id.iv_search);
         searCherView_text = (TextView) findViewById(R.id.iv_search_text);
+        versionNumber=findViewById(R.id.iv_search_version_number);
+        versionNumber.setText(VersionNumberUtils.getVersion(getApplicationContext()));
         display_remote_devices_list = (ListView) findViewById(R.id.remote_device_list);
         deviceAdapter = new DeviceAdapter(getApplicationContext());
         display_remote_devices_list.setAdapter(deviceAdapter);
@@ -142,20 +148,20 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
 
     private void showNetworkDialogFragment(int titleID, int messageID) {
         if (Config.isFullScreen)
-        if (fragmentManager.findFragmentByTag(Config.ErrorDialogKey.NETWORP_DIALOG_FRAGMENT) == null) {
-            NetworkDialog dialog = new NetworkDialog();
-            dialog.setTitle(titleID);
-            dialog.setMessage(messageID);
-            dialog.setPositoveButton(R.string.ok);
-            dialog.setCancelable(false);
-            dialog.setNetworkDialogInterface(new NetworkDialog.NetworkDialogInterface() {
-                @Override
-                public void onClick(DialogInterface dialog, int id) {
-                    SearcherActivity.this.finish();
-                }
-            });
-            dialog.show(fragmentManager, Config.ErrorDialogKey.NETWORP_DIALOG_FRAGMENT);
-        }
+            if (fragmentManager.findFragmentByTag(Config.ErrorDialogKey.NETWORP_DIALOG_FRAGMENT) == null) {
+                NetworkDialog dialog = new NetworkDialog();
+                dialog.setTitle(titleID);
+                dialog.setMessage(messageID);
+                dialog.setPositoveButton(R.string.ok);
+                dialog.setCancelable(false);
+                dialog.setNetworkDialogInterface(new NetworkDialog.NetworkDialogInterface() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        SearcherActivity.this.finish();
+                    }
+                });
+                dialog.show(fragmentManager, Config.ErrorDialogKey.NETWORP_DIALOG_FRAGMENT);
+            }
     }
 
     private void startSearchAnimation() {

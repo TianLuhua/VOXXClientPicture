@@ -40,15 +40,16 @@ public final class R {
     public static final int iv_pic=0x7f030005;
     public static final int iv_search=0x7f030006;
     public static final int iv_search_text=0x7f030007;
-    public static final int ll_find=0x7f030008;
-    public static final int ll_info=0x7f030009;
-    public static final int lv_device=0x7f03000a;
-    public static final int lv_ip=0x7f03000b;
-    public static final int pb_wait=0x7f03000c;
-    public static final int progressBar1=0x7f03000d;
-    public static final int remote_device_list=0x7f03000e;
-    public static final int surfaceView1=0x7f03000f;
-    public static final int tv_list_ip=0x7f030010;
+    public static final int iv_search_version_number=0x7f030008;
+    public static final int ll_find=0x7f030009;
+    public static final int ll_info=0x7f03000a;
+    public static final int lv_device=0x7f03000b;
+    public static final int lv_ip=0x7f03000c;
+    public static final int pb_wait=0x7f03000d;
+    public static final int progressBar1=0x7f03000e;
+    public static final int remote_device_list=0x7f03000f;
+    public static final int surfaceView1=0x7f030010;
+    public static final int tv_list_ip=0x7f030011;
   }
   public static final class layout {
     public static final int activity_display=0x7f040000;

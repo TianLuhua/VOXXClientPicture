@@ -84,8 +84,8 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
             public void disPlayRemoteDesk(Bitmap bitmap) {
                 if (getView() != null) {
                     getView().disPlayRemoteDesk(bitmap);
-                }else {
-                   throw  new NullPointerException("DisplayPresenter ---> disPlayRemoteDesk --->getView()==null ");
+                } else {
+                    throw new NullPointerException("DisplayPresenter ---> disPlayRemoteDesk --->getView()==null ");
                 }
             }
 
@@ -203,20 +203,21 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
         LogUtils.e(TAG, "hotspotHasChanged");
         //如果app处于后台时，getView()会返回null
         if (Config.isFullScreen)
-        for (ClientScanResult clientScanResult : clients) {
-            //代表设备是通热点链接到手机。因为设备的信息会保存到手机上，当设备连接手机的热点的时候。
-            if (serverIp.equals(clientScanResult.getIpAddr())) {
-                isHotSpot = true;
-                //当设备断开热点后，信息可能还保存在手机里面。但是此时设备是不可达的
-                if (!clientScanResult.isReachable()) {
-                    if (getView() != null) {
-                        getView().displayTimeout();
-                    } else {
-                        throw new NullPointerException("getView() is null (hotspotHasChanged)");
+            for (ClientScanResult clientScanResult : clients) {
+                //代表设备是通热点链接到手机。因为设备的信息会保存到手机上，当设备连接手机的热点的时候。
+                if (serverIp.equals(clientScanResult.getIpAddr())) {
+                    isHotSpot = true;
+                    //当设备断开热点后，信息可能还保存在手机里面。但是此时设备是不可达的
+                    if (!clientScanResult.isReachable()) {
+                        if (getView() != null) {
+                            getView().displayTimeout();
+                        } else {
+//                        throw new NullPointerException("getView() is null (hotspotHasChanged)");
+                            LogUtils.i(TAG, "hotspotHasChanged:" + "getView() is null (hotspotHasChanged)");
+                        }
                     }
                 }
             }
-        }
     }
 
     @Override

@@ -131,7 +131,7 @@ public class WifiApManager {
      * @param finishListener, Interface called when the scan method finishes
      */
     public void getClientList(boolean onlyReachables, FinishScanListener finishListener) {
-        getClientList(onlyReachables, 300, finishListener);
+        getClientList(onlyReachables, 1500, finishListener);
     }
 
     /**

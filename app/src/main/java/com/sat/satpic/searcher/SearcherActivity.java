@@ -24,8 +24,6 @@ import com.sat.satpic.utils.LogUtils;
 import com.sat.satpic.utils.VersionNumberUtils;
 import com.sat.satpic.widget.NetworkDialog;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -81,7 +79,7 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
     protected void initView() {
         searCherView = (ImageView) findViewById(R.id.iv_search);
         searCherView_text = (TextView) findViewById(R.id.iv_search_text);
-        versionNumber=findViewById(R.id.iv_search_version_number);
+        versionNumber = findViewById(R.id.iv_search_version_number);
         versionNumber.setText(VersionNumberUtils.getVersion(getApplicationContext()));
         display_remote_devices_list = (ListView) findViewById(R.id.remote_device_list);
         deviceAdapter = new DeviceAdapter(getApplicationContext());
@@ -182,21 +180,20 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
     }
 
     private void showDevice() {
-        if (searCherView != null) {
+        if (searCherView != null)
             searCherView.clearAnimation();
-        }
 
-        if (searCherView.getVisibility() == View.VISIBLE) {
+        if (searCherView.getVisibility() == View.VISIBLE)
             searCherView.setVisibility(View.GONE);
-        }
 
-        if (searCherView_text.getVisibility() == View.VISIBLE) {
+        if (versionNumber.getVisibility() == View.VISIBLE)
+            versionNumber.setVisibility(View.GONE);
+
+        if (searCherView_text.getVisibility() == View.VISIBLE)
             searCherView_text.setVisibility(View.GONE);
-        }
 
-        if (display_remote_devices_list.getVisibility() != View.VISIBLE) {
+        if (display_remote_devices_list.getVisibility() != View.VISIBLE)
             display_remote_devices_list.setVisibility(View.VISIBLE);
-        }
 
     }
 

@@ -173,7 +173,7 @@ public class SearcherMode {
 
     }
 
-    private void receiverBack() {
+    private synchronized void receiverBack() {
         try {
             if (udpBack == null) {
                 udpBack = new DatagramSocket(Config.PortGlob.BACKPORT);
@@ -194,19 +194,17 @@ public class SearcherMode {
                 remoteServerIp = split[1];
                 remoteName = split[2];
 
-                synchronized (lock) {
-                    if (!deviceInfos.containsKey(remoteServerIp)) {
-                        DeviceInfo mDeviceInfo = new DeviceInfo(remoteServerIp, remoteName);
-                        deviceInfos.put(remoteServerIp, mDeviceInfo);
+                if (!deviceInfos.containsKey(remoteServerIp)) {
+                    DeviceInfo mDeviceInfo = new DeviceInfo(remoteServerIp, remoteName);
+                    deviceInfos.put(remoteServerIp, mDeviceInfo);
 
-                        byte[] over = "pic".getBytes();
-                        DatagramPacket packet = new DatagramPacket(over,
-                                over.length, broadcastAddress,
-                                Config.PortGlob.MULTIPORT);
-                        multicastSocket.send(packet);
-                        mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.SCAN_DEVICE_SUCESS,
-                                0);
-                    }
+                    byte[] over = "pic".getBytes();
+                    DatagramPacket packet = new DatagramPacket(over,
+                            over.length, broadcastAddress,
+                            Config.PortGlob.MULTIPORT);
+                    multicastSocket.send(packet);
+                    mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.SCAN_DEVICE_SUCESS,
+                            0);
                 }
 
                 LogUtils.i(TAG, "hdb-------serverIp:" + remoteServerIp

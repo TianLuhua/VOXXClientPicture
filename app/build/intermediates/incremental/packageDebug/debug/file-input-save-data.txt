@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Mar 26 10:01:03 CST 2018
+#Wed Apr 04 16:52:44 CST 2018
 2.base=E\:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\30
 5.set=DEX
 0.path=classes.dex

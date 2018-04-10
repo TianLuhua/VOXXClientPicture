@@ -8,4 +8,7 @@
     <drawable name="bule_light">#A7C0DC</drawable>
     <drawable name="red_light">#E2364B</drawable>
     <drawable name="color_pink">#db03db</drawable>
+
+    <color name="colorAccent">#FF4081</color>
+    <color name="scan_corner_color">#0effc2</color>
 </resources>

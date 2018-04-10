@@ -83,11 +83,11 @@ public class ImageSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                 int width = getWidth();
                 //生成合适的图像
                 bitmap = getReduceBitmap(bitmap, width, height);
-                paint.setAntiAlias(true);
-                paint.setStyle(Paint.Style.FILL);
-                //清屏
-                paint.setColor(Color.BLACK);
-                canvas.drawRect(new Rect(0, 0, getWidth(), getHeight()), paint);
+//                paint.setAntiAlias(true);
+//                paint.setStyle(Paint.Style.FILL);
+//                //清屏
+//                paint.setColor(Color.BLACK);
+//                canvas.drawRect(new Rect(0, 0, getWidth(), getHeight()), paint);
                 //画图
                 canvas.drawBitmap(bitmap, matrix, paint);
             }

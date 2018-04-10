@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sat.satpic"
     android:versionCode="1"
-    android:versionName="1.1">
+    android:versionName="1.2">
 
     <uses-sdk
         android:minSdkVersion="18"
@@ -12,6 +12,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name=".VOXXApplication"
@@ -32,15 +37,34 @@
         </activity>
         <activity
             android:name=".display.DisPlayActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
-            android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="com.sat.action.display.remote" />
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+
+        <!--        Zxing Demo                   -->
+
+        <!--<activity android:name=".zxing.MainActivity"-->
+            <!--android:theme="@style/Theme.AppCompat.Light.NoActionBar"-->
+            <!--&gt;-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+        <!--<activity android:name=".zxing.SecondActivity"-->
+            <!--android:theme="@style/Theme.AppCompat.Light.NoActionBar"-->
+            <!--/>-->
+        <!--<activity android:name=".zxing.ThreeActivity"-->
+            <!--android:theme="@style/Theme.AppCompat.Light.NoActionBar"-->
+            <!--/>-->
     </application>
 
 </manifest>

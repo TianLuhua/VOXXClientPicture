@@ -74,7 +74,6 @@ public class DisplayMode {
                         return;
                     }
                     dataSocket = new Socket(serverIp, Config.PortGlob.DATAPORT);// 10.0.0.24
-
                     DataInputStream dis = new DataInputStream(
                             dataSocket.getInputStream());
                     LogUtils.i(TAG, "hdb---data--连接成功");

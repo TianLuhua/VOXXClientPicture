@@ -9,7 +9,6 @@ import android.view.animation.AnimationSet;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +22,7 @@ import com.sat.satpic.utils.HideSystemUIUtils;
 import com.sat.satpic.utils.LogUtils;
 import com.sat.satpic.utils.VersionNumberUtils;
 import com.sat.satpic.widget.NetworkDialog;
+import com.sat.satpic.widget.RadarView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +37,7 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
     public static final String TAG = "SearcherActivity";
 
     private ListView display_remote_devices_list;
-    private ImageView searCherView;
+    private RadarView searCherView;
     private TextView searCherView_text;
     private TextView versionNumber;
 
@@ -77,7 +77,7 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
 
     @Override
     protected void initView() {
-        searCherView = (ImageView) findViewById(R.id.iv_search);
+        searCherView = (RadarView) findViewById(R.id.iv_search);
         searCherView_text = (TextView) findViewById(R.id.iv_search_text);
         versionNumber = findViewById(R.id.iv_search_version_number);
         versionNumber.setText(VersionNumberUtils.getVersion(getApplicationContext()));
@@ -104,7 +104,10 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
     @Override
     public void searchLoading() {
         LogUtils.e(TAG, "searchLoading");
-        startSearchAnimation();
+//        startSearchAnimation();
+        if (searCherView != null) {
+            searCherView.startScan();
+        }
     }
 
 

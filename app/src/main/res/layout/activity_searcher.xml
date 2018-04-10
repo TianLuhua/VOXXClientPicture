@@ -17,12 +17,12 @@
         android:padding="5dp"
         android:scrollbars="none" />
 
-    <ImageView
+    <com.sat.satpic.widget.RadarView
         android:id="@+id/iv_search"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:src="@drawable/search" />
+         />
 
     <TextView
         android:id="@+id/iv_search_text"

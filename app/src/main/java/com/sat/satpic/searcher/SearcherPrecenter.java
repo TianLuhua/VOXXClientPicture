@@ -100,6 +100,11 @@ public class SearcherPrecenter extends AbstractPresenter<SearcherView> {
         mContext = null;
     }
 
+    /**
+     * 通过IP启动显示远程设备桌面情况
+     *
+     * @param remoteServiceID 远程服务器IP
+     */
     public void startDispayRemoteByServiceID(String remoteServiceID) {
         Intent intent = new Intent(Config.SystemAction.ACTIVITY_DISPAY_REMOTE);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

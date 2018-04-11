@@ -60,7 +60,11 @@ public class DisplayMode {
         ;
     };
 
-
+    /**
+     * 开启远程服务端,通过远程服务器的
+     *
+     * @param serverIp
+     */
     public void startServer(final String serverIp) {
         if (callBack != null) {
             callBack.loading();
@@ -92,7 +96,12 @@ public class DisplayMode {
         });
     }
 
-
+    /**
+     * 读取远程通过TCP 传输过来的数据
+     *
+     * @param dis
+     * @throws IOException
+     */
     private synchronized void readFile(DataInputStream dis) throws IOException {
         LogUtils.i(TAG, "hdb---readFile");
         receveByteslen = new byte[3];

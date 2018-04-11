@@ -69,6 +69,9 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
 
     }
 
+    /**
+     * 搜索引擎，查找远程设备
+     */
     public void startSearchService() {
         if (searcherPrecenter != null) {
             searcherPrecenter.searchRemoteDevices(getApplicationContext());
@@ -146,6 +149,12 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
         showNetworkDialogFragment(R.string.network_dialog_title, R.string.network_please_check_the_network);
     }
 
+    /**
+     * 系统提示对话框
+     *
+     * @param titleID
+     * @param messageID
+     */
     private void showNetworkDialogFragment(int titleID, int messageID) {
         if (Config.isFullScreen)
             if (fragmentManager.findFragmentByTag(Config.ErrorDialogKey.NETWORP_DIALOG_FRAGMENT) == null) {
@@ -164,6 +173,9 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
             }
     }
 
+    /**
+     * 远程服务器有反馈，就显示在UI上
+     */
     private void showDevice() {
         if (searCherView != null)
             searCherView.clearAnimation();

@@ -158,6 +158,11 @@ public class SearcherMode {
 
     }
 
+    /**
+     * 通过向广播地址发送信息，让服务端做出回应
+     *
+     * @throws IOException
+     */
     private void sendBroadCast() throws IOException {
         String ipAddress = IpUtils.getHostIP();
         LogUtils.i(TAG, "hdb----send---ipAddress:" + ipAddress);
@@ -172,6 +177,9 @@ public class SearcherMode {
 
     }
 
+    /**
+     * 接受远程设备反馈的信息，添加到deviceInfos
+     */
     private synchronized void receiverBack() {
         try {
             if (udpBack == null) {
@@ -243,6 +251,9 @@ public class SearcherMode {
 
     }
 
+    /**
+     * 数据以及状态回调接口
+     */
     public interface CallBack {
 
         public void searchLoading();

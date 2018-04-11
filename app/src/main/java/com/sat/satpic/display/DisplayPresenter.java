@@ -22,6 +22,7 @@ import java.util.Timer;
 
 /**
  * Created by Tianluhua on 2018/3/13.
+ * 用于协调UI和数据
  */
 
 public class DisplayPresenter extends AbstractPresenter<DisplayView> implements CheckHotspotChangTask.CallBack {
@@ -105,11 +106,17 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
             }
 
         });
+
         checkHotSpotTimer = new Timer();
 
 
     }
 
+    /**
+     * 与远程服务端建立连接
+     *
+     * @param serverIp 远程服务端设备的
+     */
     public void startDisPlayRomoteDesk(String serverIp) {
         this.serverIp = serverIp;
         startTouchServer();
@@ -124,6 +131,12 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
         startChekcoutHotSpotChange(Config.SystemTime.CHECKOUT_DISPLAY_TIMEOUT_DELAY, Config.SystemTime.CHECKOUT_DISPLAY_TIMEOUT);
     }
 
+    /**
+     * 定时轮询检测热点是否断开连接
+     *
+     * @param delay
+     * @param period
+     */
     public void startChekcoutHotSpotChange(long delay, long period) {
         if (checkHotSpotTimer != null) {
             LogUtils.e("tlh", "startChekcoutHotSpotChange----222");
@@ -133,6 +146,9 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
         }
     }
 
+    /**
+     * 移除定时检测
+     */
     public void removeChekcoutHotSpotChange() {
         if (checkHotSpotTimer != null) {
             LogUtils.e("tlh", "removeChekcoutHotSpotChange");
@@ -141,6 +157,9 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
 
     }
 
+    /**
+     * 和远程服务器建立TCP连接，用于屏幕事件的交互
+     */
     private void startTouchServer() {
 
         ThreadUtils.getExecutorService().execute(new Runnable() {
@@ -161,7 +180,13 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
 
     }
 
-
+    /**
+     * 发送本地屏幕事件到远程服务端
+     *
+     * @param actionType 时间类型
+     * @param changeX    事件对应的 X 值
+     * @param changeY    事件对应的  值
+     */
     public void sendTouchData(final int actionType, final int changeX, final int changeY) {
         LogUtils.i(TAG, "sendTouchData---action:" + actionType + "  changeX:" + changeX
                 + "  changeY:" + changeY);

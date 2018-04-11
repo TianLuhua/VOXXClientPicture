@@ -6,7 +6,7 @@ package com.sat.satpic;
 
 public class Config {
 
-   //用于管理Activity处于onPause状态时，不显示Dialog的标志
+    //用于管理Activity处于onPause状态时，不显示Dialog的标志
     public static boolean isFullScreen = false;
 
     public static class MotionEventKey {
@@ -41,16 +41,16 @@ public class Config {
     }
 
     public static class HandlerGlod {
-        public static final int CONNET_SUCCESS = 1;
-        public static final int SCAN_IP_OVER = 2;
-        public static final int CLEAR_FAILCOUNT = 3;
-        public static final int TIME_OUT = 4;
-        public static final int CONNECT_FAIL = 5;
-        public static final int SCAN_DEVICE_SUCESS = 6;
-        public static final int IS_LOOP_SENDBROADCAST = 7;
-        public static final int SHOW_IMAGEVIEW = 8;
-        public static final int NET_ERROR = 9;
-        public static final int SEARCHER_TIMEOUT = 10;
+        public static final int CONNET_SUCCESS = 0X00001;
+        public static final int SCAN_IP_OVER = 0X00002;
+        public static final int CLEAR_FAILCOUNT = 0X00003;
+        public static final int TIME_OUT = 0X00004;
+        public static final int CONNECT_FAIL = 0X00005;
+        public static final int SCAN_DEVICE_SUCESS = 0X00006;
+        public static final int IS_LOOP_SENDBROADCAST = 0X00007;
+        public static final int SHOW_IMAGEVIEW = 0X00008;
+        public static final int NET_ERROR = 0X00009;
+        public static final int SEARCHER_TIMEOUT = 0X000010;
     }
 
     public static class SystemAction {

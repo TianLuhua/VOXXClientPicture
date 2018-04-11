@@ -12,15 +12,17 @@ import java.util.Map;
 
 public interface SearcherView extends BaseView {
 
+    //加载Loading
     public void searchLoading();
 
+    //搜索到设备回调
     public void searchSuccess(Map<String, DeviceInfo> deviceInfos);
-
+    //搜索完毕回调
     public void searchEnd();
-
+    //搜索失败回调
     public void searchFila(String msg);
-
+    //搜索超时回调
     public void searchOutTime();
-
+    //网络异常回调
     public void networkError();
 }

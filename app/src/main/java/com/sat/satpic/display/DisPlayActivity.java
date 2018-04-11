@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
@@ -144,7 +145,7 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
     @Override
     public void fila() {
         LogUtils.e(TAG, "fila");
-            showNetworkDialogFragment(R.string.display_connect_fail, R.string.display_connect_fail_message);
+        showNetworkDialogFragment(R.string.display_connect_fail, R.string.display_connect_fail_message);
     }
 
 
@@ -160,7 +161,12 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
         showNetworkDialogFragment(R.string.display_lost_host, R.string.network_please_check_the_network);
     }
 
-
+    /**
+     * 系统提示对话框
+     *
+     * @param titleID
+     * @param messageID
+     */
     private void showNetworkDialogFragment(int titleID, int messageID) {
         LogUtils.e(TAG, "showNetworkDialogFragment--111111111111111");
         if (Config.isFullScreen)

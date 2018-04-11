@@ -15,8 +15,8 @@ public class Config {
         public static final String JY = "y";
 
         public static final int ACTION_DOWN = 0;
-        public static final int ACTION_MOVE = 2;
         public static final int ACTION_UP = 1;
+        public static final int ACTION_MOVE = 2;
     }
 
     public static class ErrorDialogKey {

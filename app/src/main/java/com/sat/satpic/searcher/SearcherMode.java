@@ -145,7 +145,6 @@ public class SearcherMode {
                         if (broadcastAddress == null) {
                             mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.NET_ERROR, 0);
                         } else {
-
                             multicastSocket.joinGroup(broadcastAddress);
                         }
                     }
@@ -222,19 +221,19 @@ public class SearcherMode {
 
     public void onDestroy() {
         this.callBack = null;
-        if (multicastSocket != null) {
-            try {
-                if (broadcastAddress != null) {
-
-                    multicastSocket.leaveGroup(broadcastAddress);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            multicastSocket.close();
-        }
+//        if (multicastSocket != null) {
+//            try {
+//                if (broadcastAddress != null) {
+//
+//                    multicastSocket.leaveGroup(broadcastAddress);
+//                }
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            multicastSocket.close();
+//        }
         if (udpBack != null) {
-            udpBack.close();
+//            udpBack.close();
         }
         isLoopSendBraodCast = false;
     }

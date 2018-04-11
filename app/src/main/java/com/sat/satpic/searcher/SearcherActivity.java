@@ -104,7 +104,6 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
     @Override
     public void searchLoading() {
         LogUtils.e(TAG, "searchLoading");
-//        startSearchAnimation();
         if (searCherView != null) {
             searCherView.startScan();
         }
@@ -163,23 +162,6 @@ public class SearcherActivity extends AbstractMVPActivity<SearcherView, Searcher
                 });
                 dialog.show(fragmentManager, Config.ErrorDialogKey.NETWORP_DIALOG_FRAGMENT);
             }
-    }
-
-    private void startSearchAnimation() {
-        AnimationSet as = new AnimationSet(true);
-        RotateAnimation ra = new RotateAnimation(0, 90,
-                Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 1f);
-        TranslateAnimation ta = new TranslateAnimation(-50, 0, 0, -50);
-        ta.setDuration(1000);
-        ta.setRepeatCount(-1);
-        ra.setDuration(1000);
-        ra.setRepeatCount(-1);
-        as.addAnimation(ta);
-        as.addAnimation(ra);
-        as.setRepeatMode(AnimationSet.REVERSE);
-        if (searCherView != null) {
-            searCherView.startAnimation(as);
-        }
     }
 
     private void showDevice() {

@@ -229,17 +229,16 @@ public class SearcherMode {
 
     public void onDestroy() {
         this.callBack = null;
-//        if (multicastSocket != null) {
-//            try {
-//                if (broadcastAddress != null) {
-//
-//                    multicastSocket.leaveGroup(broadcastAddress);
-//                }
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
+        if (multicastSocket != null) {
+            try {
+                if (broadcastAddress != null) {
+                    multicastSocket.leaveGroup(broadcastAddress);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 //            multicastSocket.close();
-//        }
+        }
         if (udpBack != null) {
 //            udpBack.close();
         }

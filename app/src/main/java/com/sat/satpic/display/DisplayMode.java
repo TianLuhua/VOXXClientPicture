@@ -24,13 +24,10 @@ public class DisplayMode {
     private Socket dataSocket;
     private boolean isRun = true;
 
-
+    private byte[] receveByteslen = new byte[3];
     private byte[] receveBytes;
-    private byte[] receveByteslen;
 
     private Bitmap bm;
-
-
     private Handler mHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
             switch (msg.what) {
@@ -96,6 +93,7 @@ public class DisplayMode {
         });
     }
 
+
     /**
      * 读取远程通过TCP 传输过来的数据
      *
@@ -104,7 +102,6 @@ public class DisplayMode {
      */
     private synchronized void readFile(DataInputStream dis) throws IOException {
         LogUtils.i(TAG, "hdb---readFile");
-        receveByteslen = new byte[3];
         dis.read(receveByteslen);
         int length = ByteUtils.bufferToInt(receveByteslen);
         LogUtils.i(TAG, "hdb---readFile--length:" + length);

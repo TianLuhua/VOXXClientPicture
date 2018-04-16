@@ -1,6 +1,7 @@
 package com.sat.satpic.base;
 
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.Toast;
@@ -24,6 +25,8 @@ public abstract class AbstractMVPActivity<V extends BaseView, P extends Abstract
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
+        if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         if (mPresenter == null) {
             mPresenter = createPresenter();
         }

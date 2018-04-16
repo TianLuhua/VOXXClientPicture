@@ -142,8 +142,6 @@ MERGED from [com.android.support:support-compat:25.1.1] C:\Users\Administrator\.
 		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:22:9-40
 activity#com.sat.satpic.searcher.SearcherActivity
 ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:27:9-37:20
-	android:screenOrientation
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:30:13-50
 	android:label
 		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:29:13-45
 	android:theme
@@ -162,8 +160,6 @@ ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest
 		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:35:27-74
 activity#com.sat.satpic.display.DisPlayActivity
 ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:38:9-48:20
-	android:screenOrientation
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:42:13-50
 	android:launchMode
 		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:41:13-44
 	android:configChanges

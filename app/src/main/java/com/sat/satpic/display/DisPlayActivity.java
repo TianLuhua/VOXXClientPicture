@@ -148,6 +148,12 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
         showNetworkDialogFragment(R.string.display_connect_fail, R.string.display_connect_fail_message);
     }
 
+    @Override
+    public void initTouchEventFila() {
+        LogUtils.e(TAG, "initTouchEventFila");
+        showNetworkDialogFragment(R.string.display_connect_fail, R.string.display_connect_fail_message);
+    }
+
 
     @Override
     public void connectSucess() {

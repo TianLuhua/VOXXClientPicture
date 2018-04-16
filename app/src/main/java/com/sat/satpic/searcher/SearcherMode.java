@@ -205,11 +205,11 @@ public class SearcherMode {
                     DeviceInfo mDeviceInfo = new DeviceInfo(remoteServerIp, remoteName);
                     deviceInfos.put(remoteServerIp, mDeviceInfo);
 
-                    byte[] over = "pic".getBytes();
-                    DatagramPacket packet = new DatagramPacket(over,
-                            over.length, broadcastAddress,
-                            Config.PortGlob.MULTIPORT);
-                    multicastSocket.send(packet);
+//                    byte[] over = "pic".getBytes();
+//                    DatagramPacket packet = new DatagramPacket(over,
+//                            over.length, broadcastAddress,
+//                            Config.PortGlob.MULTIPORT);
+//                    multicastSocket.send(packet);
                     mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.SCAN_DEVICE_SUCESS,
                             0);
                 }

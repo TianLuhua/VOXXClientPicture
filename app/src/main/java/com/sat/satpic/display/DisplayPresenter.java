@@ -6,6 +6,7 @@ import android.os.Handler;
 
 import com.sat.satpic.Config;
 import com.sat.satpic.base.AbstractPresenter;
+import com.sat.satpic.utils.IpUtils;
 import com.sat.satpic.utils.LogUtils;
 import com.sat.satpic.utils.ThreadUtils;
 import com.sat.satpic.widget.HotspotManager.CheckHotspotChangTask;
@@ -16,6 +17,9 @@ import org.json.JSONObject;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.InetAddress;
+import java.net.MulticastSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Timer;
@@ -49,9 +53,9 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
         public void handleMessage(android.os.Message msg) {
             switch (msg.what) {
 
-                case Config.HandlerGlod.CONNECT_FAIL:
+                case Config.HandlerGlod.TOUCH_EVENT_CONNECT_FAIL:
                     if (getView() != null) {
-                        getView().fila();
+                        getView().initTouchEventFila();
                     }
                     break;
 
@@ -110,6 +114,27 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
         checkHotSpotTimer = new Timer();
 
 
+    }
+
+
+    public void initDisPlayRomoteDesk() {
+        try {
+
+
+            byte[] over = "pic".getBytes();
+            InetAddress broadcastAddress = IpUtils.getBroadcastAddress();
+            ;
+            DatagramPacket packet = new DatagramPacket(over,
+                    over.length, broadcastAddress,
+                    Config.PortGlob.MULTIPORT);
+
+            MulticastSocket multicastSocket = new MulticastSocket(
+                    Config.PortGlob.MULTIPORT);
+            multicastSocket.send(packet);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -173,7 +198,7 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
                     dos = new DataOutputStream(touchSocket.getOutputStream());
                 } catch (Exception e) {
                     LogUtils.e(TAG, "hdb--touchServer-ex:" + e.toString());
-                    mHandler.sendEmptyMessage(Config.HandlerGlod.CONNECT_FAIL);
+                    mHandler.sendEmptyMessage(Config.HandlerGlod.TOUCH_EVENT_CONNECT_FAIL);
                 }
             }
         });

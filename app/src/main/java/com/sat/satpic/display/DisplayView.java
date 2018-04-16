@@ -19,6 +19,9 @@ public interface DisplayView extends BaseView {
     //连接远程服务器失败回调
     public void fila();
 
+    //初始化远程事件失败
+    public void initTouchEventFila();
+
     //连接远程服务器的成功回调
     public void connectSucess();
 

@@ -2388,15 +2388,17 @@ public final class R {
     public static final int display_lost_host=0x7f0c0026;
     public static final int hello_blank_fragment=0x7f0c0027;
     public static final int hello_world=0x7f0c0028;
-    public static final int network_dialog_title=0x7f0c0029;
-    public static final int network_please_check_the_network=0x7f0c002a;
-    public static final int ok=0x7f0c002b;
-    public static final int press_again=0x7f0c002c;
-    public static final int search_menu_title=0x7f0c002d;
-    public static final int search_success=0x7f0c002e;
-    public static final int searcher_out_time_title=0x7f0c002f;
-    public static final int status_bar_notification_info_overflow=0x7f0c0030;
-    public static final int tv_find=0x7f0c0031;
+    public static final int init_touch_event_fila=0x7f0c0029;
+    public static final int init_touch_event_fila_message=0x7f0c002a;
+    public static final int network_dialog_title=0x7f0c002b;
+    public static final int network_please_check_the_network=0x7f0c002c;
+    public static final int ok=0x7f0c002d;
+    public static final int press_again=0x7f0c002e;
+    public static final int search_menu_title=0x7f0c002f;
+    public static final int search_success=0x7f0c0030;
+    public static final int searcher_out_time_title=0x7f0c0031;
+    public static final int status_bar_notification_info_overflow=0x7f0c0032;
+    public static final int tv_find=0x7f0c0033;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f0d0000;

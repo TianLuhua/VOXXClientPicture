@@ -35,7 +35,7 @@ public class DisplayMode {
         public void handleMessage(android.os.Message msg) {
             switch (msg.what) {
 
-                case Config.HandlerGlod.CONNECT_FAIL:
+                case Config.HandlerGlod.TOUCH_EVENT_CONNECT_FAIL:
                     if (callBack != null) {
                         callBack.fila();
                     }

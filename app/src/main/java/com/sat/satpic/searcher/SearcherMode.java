@@ -109,53 +109,39 @@ public class SearcherMode {
             callBack.searchLoading();
         }
         deviceInfos = new HashMap<>();
-        mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.IS_LOOP_SENDBROADCAST, 500);
+        mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.IS_LOOP_SENDBROADCAST, 0);
 
-        //开始计时，系统超时时间默认为5s
+        initNet(mContext);
+
+        //开始计时，系统超时时间默认为10s
         if (!mAsyncEventHandler.hasMessages(Config.HandlerGlod.SEARCHER_TIMEOUT)) {
             mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.SEARCHER_TIMEOUT,
                     Config.SystemTime.SCAN_SERVER_OUTTIME);
         }
-        findDevice(mContext);
-        startUdpBroadcast();
 
 
     }
 
-    private void findDevice(Context mContext) {
+    private void initNet(Context mContext) {
         try {
             broadcastAddress = IpUtils.getBroadcastAddress();
+            IpUtils.openWifiBrocast(mContext); // for some phone can
+            udpBack = new DatagramSocket(Config.PortGlob.BACKPORT);
+
+            multicastSocket = new MulticastSocket(
+                    Config.PortGlob.MULTIPORT);
+            if (broadcastAddress == null) {
+                mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.NET_ERROR, 0);
+            } else {
+                multicastSocket.joinGroup(broadcastAddress);
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
             if (callBack != null) {
                 callBack.searchFila(e.getMessage());
             }
         }
-        IpUtils.openWifiBrocast(mContext); // for some phone can
-    }
-
-    private void startUdpBroadcast() {
-        ThreadUtils.getExecutorService().execute(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    if (multicastSocket == null) {
-                        multicastSocket = new MulticastSocket(
-                                Config.PortGlob.MULTIPORT);
-                        if (broadcastAddress == null) {
-                            mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.NET_ERROR, 0);
-                        } else {
-                            multicastSocket.joinGroup(broadcastAddress);
-                        }
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-//                    mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.NET_ERROR, 0);
-
-                }
-            }
-        });
-
     }
 
     /**
@@ -182,12 +168,11 @@ public class SearcherMode {
      */
     private synchronized void receiverBack() {
         try {
-            if (udpBack == null) {
-                udpBack = new DatagramSocket(Config.PortGlob.BACKPORT);
-            }
+
 
             pack = new DatagramPacket(data, data.length);
-            udpBack.receive(pack);
+            if (!udpBack.isClosed())
+                udpBack.receive(pack);
 //            udpBack.setSoTimeout(Config.SystemTime.SCAN_SERVER_OUTTIME);
             back = new String(pack.getData(), pack.getOffset(),
                     pack.getLength());
@@ -205,11 +190,6 @@ public class SearcherMode {
                     DeviceInfo mDeviceInfo = new DeviceInfo(remoteServerIp, remoteName);
                     deviceInfos.put(remoteServerIp, mDeviceInfo);
 
-//                    byte[] over = "pic".getBytes();
-//                    DatagramPacket packet = new DatagramPacket(over,
-//                            over.length, broadcastAddress,
-//                            Config.PortGlob.MULTIPORT);
-//                    multicastSocket.send(packet);
                     mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.SCAN_DEVICE_SUCESS,
                             0);
                 }
@@ -220,6 +200,7 @@ public class SearcherMode {
 
         } catch (Exception e) {
             e.printStackTrace();
+            LogUtils.i(TAG, "tlh -------- " + e.toString());
             if (e instanceof SocketTimeoutException) {
                 mAsyncEventHandler.sendEmptyMessage(Config.HandlerGlod.TIME_OUT);
             }
@@ -230,20 +211,21 @@ public class SearcherMode {
     public void onDestroy() {
         this.callBack = null;
         if (multicastSocket != null) {
-            try {
-                if (broadcastAddress != null) {
-                    multicastSocket.leaveGroup(broadcastAddress);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                if (broadcastAddress != null) {
+////                    multicastSocket.leaveGroup(broadcastAddress);
+//                }
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
 //            multicastSocket.close();
         }
-        if (udpBack != null) {
-//            udpBack.close();
-        }
         isLoopSendBraodCast = false;
+        if (udpBack != null) {
+            udpBack.close();
+        }
     }
+
 
     public void setCallBack(CallBack callBack) {
         this.callBack = callBack;

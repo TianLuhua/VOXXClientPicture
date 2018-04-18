@@ -110,6 +110,7 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
         checkHotSpotTimer = new Timer();
 
 
+
     }
 
     /**
@@ -214,6 +215,7 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
                             dos.flush();
                         } catch (IOException e) {
                             e.printStackTrace();
+                            LogUtils.i(TAG, "hdb----sendTouchData:" +e.toString());
                         }
 
                     }

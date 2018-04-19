@@ -2,6 +2,7 @@ package com.sat.satpic;
 
 import android.app.Application;
 
+import com.sat.satpic.utils.LogUtils;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 
 
@@ -14,6 +15,7 @@ public class VOXXApplication extends Application {
     public void onCreate() {
         super.onCreate();
 //        ZXingLibrary.initDisplayOpinion(this);
+        LogUtils.isDebug=false;
     }
 
     @Override

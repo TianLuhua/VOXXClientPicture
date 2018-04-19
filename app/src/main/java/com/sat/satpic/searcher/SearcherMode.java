@@ -8,7 +8,7 @@ import com.sat.satpic.Config;
 import com.sat.satpic.bean.DeviceInfo;
 import com.sat.satpic.utils.IpUtils;
 import com.sat.satpic.utils.LogUtils;
-import com.sat.satpic.utils.ThreadUtils;
+import com.sat.satpic.utils.ThreadPoolManager;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -66,7 +66,7 @@ public class SearcherMode {
                     break;
 
                 case Config.HandlerGlod.IS_LOOP_SENDBROADCAST:
-                    ThreadUtils.getExecutorService().execute(new Runnable() {
+                    ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
                         @Override
                         public void run() {
                             try {

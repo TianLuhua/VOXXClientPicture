@@ -9,9 +9,7 @@ import android.widget.Toast;
 
 import com.sat.satpic.Config;
 import com.sat.satpic.base.AbstractPresenter;
-import com.sat.satpic.bean.DeviceInfo;
 
-import java.util.ArrayList;
 import java.util.Map;
 
 /**

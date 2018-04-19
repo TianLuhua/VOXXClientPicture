@@ -7,7 +7,7 @@ import android.os.Handler;
 import com.sat.satpic.Config;
 import com.sat.satpic.base.AbstractPresenter;
 import com.sat.satpic.utils.LogUtils;
-import com.sat.satpic.utils.ThreadUtils;
+import com.sat.satpic.utils.ThreadPoolManager;
 import com.sat.satpic.widget.HotspotManager.CheckHotspotChangTask;
 import com.sat.satpic.widget.HotspotManager.ClientScanResult;
 
@@ -163,21 +163,21 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
      */
     private void startTouchServer() {
 
-        ThreadUtils.getExecutorService().execute(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    LogUtils.e(TAG, "tlh--startTouchServer-:" + serverIp);
-                    if (touchSocket != null) return;
-                    touchSocket = new Socket(serverIp,
-                            Config.PortGlob.TOUCHPORT);
-                    dos = new DataOutputStream(touchSocket.getOutputStream());
-                } catch (Exception e) {
-                    LogUtils.e(TAG, "hdb--touchServer-ex:" + e.toString());
-                    mHandler.sendEmptyMessage(Config.HandlerGlod.TOUCH_EVENT_CONNECT_FAIL);
-                }
-            }
-        });
+  ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+      @Override
+      public void run() {
+          try {
+              LogUtils.e(TAG, "tlh--startTouchServer-:" + serverIp);
+              if (touchSocket != null) return;
+              touchSocket = new Socket(serverIp,
+                      Config.PortGlob.TOUCHPORT);
+              dos = new DataOutputStream(touchSocket.getOutputStream());
+          } catch (Exception e) {
+              LogUtils.e(TAG, "hdb--touchServer-ex:" + e.toString());
+              mHandler.sendEmptyMessage(Config.HandlerGlod.TOUCH_EVENT_CONNECT_FAIL);
+          }
+      }
+  });
 
     }
 
@@ -191,7 +191,7 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
     public void sendTouchData(final int actionType, final int changeX, final int changeY) {
         LogUtils.i(TAG, "sendTouchData---action:" + actionType + "  changeX:" + changeX
                 + "  changeY:" + changeY);
-        ThreadUtils.getExecutorService().execute(new Runnable() {
+        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
             @Override
             public void run() {
                 if (dos != null) {

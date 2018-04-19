@@ -15,9 +15,7 @@ import com.sat.satpic.bean.DeviceInfo;
 import com.sat.satpic.utils.LogUtils;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Tianluhua on 2018/3/13.

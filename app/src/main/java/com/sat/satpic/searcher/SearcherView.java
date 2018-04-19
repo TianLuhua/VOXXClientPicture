@@ -3,7 +3,6 @@ package com.sat.satpic.searcher;
 import com.sat.satpic.base.BaseView;
 import com.sat.satpic.bean.DeviceInfo;
 
-import java.util.ArrayList;
 import java.util.Map;
 
 /**

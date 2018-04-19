@@ -7,7 +7,7 @@ import android.os.Handler;
 import com.sat.satpic.Config;
 import com.sat.satpic.utils.ByteUtils;
 import com.sat.satpic.utils.LogUtils;
-import com.sat.satpic.utils.ThreadUtils;
+import com.sat.satpic.utils.ThreadPoolManager;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -66,7 +66,7 @@ public class DisplayMode {
         if (callBack != null) {
             callBack.loading();
         }
-        ThreadUtils.getExecutorService().execute(new Runnable() {
+        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
             @Override
             public void run() {
                 try {

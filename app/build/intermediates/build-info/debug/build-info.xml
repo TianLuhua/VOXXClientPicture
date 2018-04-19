@@ -2,94 +2,53 @@
 <instant-run
     abi="arm64-v8a,armeabi-v7a,armeabi"
     api-level="24"
-    build-mode="FULL"
+    build-mode="COLD"
     density="xxhdpi"
     format="10"
+    ir-eligibility="COMPATIBLE"
     plugin-version="3.1.1"
-    timestamp="1524127730697"
+    timestamp="1524132385945"
     token="-6324912380924049744"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="635" />
+        duration="340" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="56" />
+        duration="18" />
     <task
         name="verifier"
-        duration="13" />
+        duration="5" />
 
     <artifact
         location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
         type="SPLIT" />
-    <artifact
-        location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-        type="SPLIT" />
-    <artifact
-        location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
-        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1524127730697"
-        verifier="FULL_BUILD_REQUESTED" >
+        timestamp="1524131333276"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
             location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
             location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
-            location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
             location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
@@ -98,8 +57,35 @@
             location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
             type="SPLIT" />
         <artifact
+            location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
+        <artifact
             location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
             type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1524131448349"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1524132385945"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="E:\workspace\androidStudio\VOXXClientPic\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            type="SPLIT" />
     </build>
 
 </instant-run>

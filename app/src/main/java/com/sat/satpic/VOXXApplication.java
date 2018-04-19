@@ -3,6 +3,7 @@ package com.sat.satpic;
 import android.app.Application;
 
 import com.sat.satpic.utils.LogUtils;
+import com.tencent.bugly.crashreport.CrashReport;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 
 
@@ -16,6 +17,7 @@ public class VOXXApplication extends Application {
         super.onCreate();
 //        ZXingLibrary.initDisplayOpinion(this);
         LogUtils.isDebug=false;
+        CrashReport.initCrashReport(getApplicationContext(), "7c592f151e", true);
     }
 
     @Override

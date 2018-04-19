@@ -118,15 +118,16 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: cn.yipianfengye.android:zxing-library-2.2" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-fragment-25.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-core-ui-25.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-media-compat-25.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-v4-25.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7-25.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: pub.devrel:easypermissions-0.2.0" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-annotations:25.1.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-compat-25.1.1" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:animated-vector-drawable-25.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-core-ui-25.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-media-compat-25.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.tencent.bugly:crashreport-2.1.5" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-vector-drawable-25.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-v4-25.1.1" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-core-utils-25.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7-25.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: pub.devrel:easypermissions-0.2.0" level="project" />
   </component>
 </module>

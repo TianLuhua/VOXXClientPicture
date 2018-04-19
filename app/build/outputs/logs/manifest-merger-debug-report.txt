@@ -1,11 +1,12 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-70:12
-INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-70:12
-INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-70:12
-INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-70:12
+ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-73:12
 MERGED from [cn.yipianfengye.android:zxing-library:2.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\zxing-library-2.2.aar\9f7f35d68be4f0758951d47a6ea71104\AndroidManifest.xml:2:1-20:12
 MERGED from [pub.devrel:easypermissions:0.2.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\easypermissions-0.2.0.aar\9432359dfac6058221d7d9f92241f308\AndroidManifest.xml:2:1-14:12
+MERGED from [com.tencent.bugly:crashreport:2.1.5] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport-2.1.5.aar\d10d7250fc52bdcf8e344256252bb465\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:appcompat-v7:25.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.1.1.aar\6847b308e3aeb4fd5751ef48df9a1953\AndroidManifest.xml:17:1-27:12
 MERGED from [com.android.support:support-v4:25.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-25.1.1.aar\c2f68ac947f1b3f9d5c272e60f870c4e\AndroidManifest.xml:17:1-27:12
 MERGED from [com.android.support:support-fragment:25.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-fragment-25.1.1.aar\8a7e3d3f0ab25bd9e8ff8180dd5fc222\AndroidManifest.xml:17:1-27:12
@@ -15,9 +16,9 @@ MERGED from [com.android.support:support-core-ui:25.1.1] C:\Users\Administrator\
 MERGED from [com.android.support:animated-vector-drawable:25.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-25.1.1.aar\77beba579de09e6a800d8e2ad8c86cf9\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:support-vector-drawable:25.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-25.1.1.aar\75e0cc9378685a105c6856897cbc68b8\AndroidManifest.xml:17:1-25:12
 MERGED from [com.android.support:support-compat:25.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-25.1.1.aar\5485accde5d9df3d64e51751994b7be8\AndroidManifest.xml:17:1-27:12
-INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-70:12
-INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-70:12
-INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-70:12
+INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:2:1-73:12
 	package
 		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:3:5-29
 		INJECTED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml
@@ -40,6 +41,8 @@ MERGED from [cn.yipianfengye.android:zxing-library:2.2] C:\Users\Administrator\.
 MERGED from [cn.yipianfengye.android:zxing-library:2.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\zxing-library-2.2.aar\9f7f35d68be4f0758951d47a6ea71104\AndroidManifest.xml:7:5-9:41
 MERGED from [pub.devrel:easypermissions:0.2.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\easypermissions-0.2.0.aar\9432359dfac6058221d7d9f92241f308\AndroidManifest.xml:8:5-10:41
 MERGED from [pub.devrel:easypermissions:0.2.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\easypermissions-0.2.0.aar\9432359dfac6058221d7d9f92241f308\AndroidManifest.xml:8:5-10:41
+MERGED from [com.tencent.bugly:crashreport:2.1.5] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport-2.1.5.aar\d10d7250fc52bdcf8e344256252bb465\AndroidManifest.xml:7:5-9:41
+MERGED from [com.tencent.bugly:crashreport:2.1.5] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashreport-2.1.5.aar\d10d7250fc52bdcf8e344256252bb465\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:25.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.1.1.aar\6847b308e3aeb4fd5751ef48df9a1953\AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:appcompat-v7:25.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.1.1.aar\6847b308e3aeb4fd5751ef48df9a1953\AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:support-v4:25.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-25.1.1.aar\c2f68ac947f1b3f9d5c272e60f870c4e\AndroidManifest.xml:21:5-23:54
@@ -106,8 +109,16 @@ uses-permission#android.permission.VIBRATE
 ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:19:5-66
 	android:name
 		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:19:22-63
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:21:5-74
+	android:name
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:21:22-72
+uses-permission#android.permission.READ_LOGS
+ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:22:5-68
+	android:name
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:22:22-65
 application
-ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:21:5-68:19
+ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:24:5-71:19
 MERGED from [cn.yipianfengye.android:zxing-library:2.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\zxing-library-2.2.aar\9f7f35d68be4f0758951d47a6ea71104\AndroidManifest.xml:11:5-18:19
 MERGED from [cn.yipianfengye.android:zxing-library:2.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\zxing-library-2.2.aar\9f7f35d68be4f0758951d47a6ea71104\AndroidManifest.xml:11:5-18:19
 MERGED from [pub.devrel:easypermissions:0.2.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\easypermissions-0.2.0.aar\9432359dfac6058221d7d9f92241f308\AndroidManifest.xml:12:5-20
@@ -131,53 +142,53 @@ MERGED from [com.android.support:support-vector-drawable:25.1.1] C:\Users\Admini
 MERGED from [com.android.support:support-compat:25.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-25.1.1.aar\5485accde5d9df3d64e51751994b7be8\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-compat:25.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-25.1.1.aar\5485accde5d9df3d64e51751994b7be8\AndroidManifest.xml:25:5-20
 	android:label
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:25:9-41
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:28:9-41
 	android:icon
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:24:9-45
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:27:9-45
 	android:allowBackup
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:23:9-35
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:26:9-35
 	android:theme
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:26:9-40
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:29:9-40
 	android:name
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:22:9-40
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:25:9-40
 activity#com.sat.satpic.searcher.SearcherActivity
-ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:27:9-37:20
+ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:30:9-40:20
 	android:label
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:29:13-45
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:32:13-45
 	android:theme
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:31:13-77
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:34:13-77
 	android:name
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:28:13-68
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:31:13-68
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:32:13-36:29
+ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:35:13-39:29
 action#android.intent.action.MAIN
-ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:33:17-69
+ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:36:17-69
 	android:name
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:33:25-66
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:36:25-66
 category#android.intent.category.LAUNCHER
-ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:35:17-77
+ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:38:17-77
 	android:name
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:35:27-74
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:38:27-74
 activity#com.sat.satpic.display.DisPlayActivity
-ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:38:9-48:20
+ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:41:9-51:20
 	android:launchMode
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:41:13-44
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:44:13-44
 	android:configChanges
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:40:13-74
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:43:13-74
 	android:theme
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:43:13-77
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:46:13-77
 	android:name
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:39:13-52
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:42:13-52
 intent-filter#action:name:com.sat.action.display.remote+category:name:android.intent.category.DEFAULT
-ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:44:13-47:29
+ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:47:13-50:29
 action#com.sat.action.display.remote
-ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:45:17-72
+ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:48:17-72
 	android:name
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:45:25-69
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:48:25-69
 category#android.intent.category.DEFAULT
-ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:46:17-76
+ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:49:17-76
 	android:name
-		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:46:27-73
+		ADDED from E:\workspace\androidStudio\VOXXClientPic\app\src\main\AndroidManifest.xml:49:27-73
 activity#com.uuzuche.lib_zxing.activity.CaptureActivity
 ADDED from [cn.yipianfengye.android:zxing-library:2.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\zxing-library-2.2.aar\9f7f35d68be4f0758951d47a6ea71104\AndroidManifest.xml:12:9-17:63
 	android:screenOrientation

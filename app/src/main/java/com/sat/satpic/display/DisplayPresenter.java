@@ -3,6 +3,7 @@ package com.sat.satpic.display;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Handler;
+import android.os.Message;
 
 import com.sat.satpic.Config;
 import com.sat.satpic.base.AbstractPresenter;
@@ -16,6 +17,7 @@ import org.json.JSONObject;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.lang.ref.WeakReference;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Timer;
@@ -45,29 +47,7 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
     private Context mContext;
     private Timer checkHotSpotTimer;
 
-    private Handler mHandler = new Handler() {
-        public void handleMessage(android.os.Message msg) {
-            switch (msg.what) {
-
-                case Config.HandlerGlod.TOUCH_EVENT_CONNECT_FAIL:
-                    if (getView() != null) {
-                        getView().initTouchEventFila();
-                    }
-                    break;
-
-                case Config.HandlerGlod.CONNET_SUCCESS:
-                    if (getView() != null) {
-                        getView().connectSucess();
-                    }
-                    break;
-
-                default:
-                    break;
-            }
-        }
-
-        ;
-    };
+    private Handler mHandler = new DisplayHandler(this);
 
 
     public DisplayPresenter(Context mContext) {
@@ -259,6 +239,40 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
             checkHotSpotTimer.cancel();
         }
     }
+
+
+    public static  class DisplayHandler extends Handler{
+    private    WeakReference<DisplayPresenter> weakReference;
+
+        public DisplayHandler(DisplayPresenter displayPresenter) {
+            weakReference=new WeakReference<DisplayPresenter>(displayPresenter);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            DisplayPresenter displayPresenter = weakReference.get();
+           if (displayPresenter==null)return;
+            switch (msg.what) {
+
+                case Config.HandlerGlod.TOUCH_EVENT_CONNECT_FAIL:
+                    if (displayPresenter.getView() != null) {
+                        displayPresenter.getView().initTouchEventFila();
+                    }
+                    break;
+
+                case Config.HandlerGlod.CONNET_SUCCESS:
+                    if (displayPresenter.getView() != null) {
+                        displayPresenter.getView().connectSucess();
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+
+        }
+    }
+
 
 
 }

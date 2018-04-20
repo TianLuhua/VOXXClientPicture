@@ -11,6 +11,7 @@ import com.sat.satpic.utils.LogUtils;
 import com.sat.satpic.utils.ThreadPoolManager;
 
 import java.io.IOException;
+import java.lang.ref.WeakReference;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -45,62 +46,7 @@ public class SearcherMode {
     private Object lock = new Object();
 
 
-    private Handler mAsyncEventHandler = new Handler() {
-
-        public void handleMessage(Message msg) {
-
-            switch (msg.what) {
-                case Config.HandlerGlod.SCAN_DEVICE_SUCESS:
-                    if (callBack != null && deviceInfos != null && deviceInfos.size() > 0) {
-                        callBack.searchSuccess(deviceInfos);
-                        callBack.searchEnd();
-                    }
-
-                    break;
-
-                case Config.HandlerGlod.TIME_OUT:
-                    if (callBack != null) {
-                        callBack.searchOutTime();
-                    }
-
-                    break;
-
-                case Config.HandlerGlod.IS_LOOP_SENDBROADCAST:
-                    ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                sendBroadCast();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    });
-
-                    if (isLoopSendBraodCast) {
-                        mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.IS_LOOP_SENDBROADCAST, 1000);
-                    }
-
-                    break;
-                case Config.HandlerGlod.NET_ERROR:
-                    if (callBack != null) {
-                        callBack.networkError();
-                    }
-                    break;
-
-                case Config.HandlerGlod.SEARCHER_TIMEOUT:
-                    if (callBack != null) {
-                        callBack.searchOutTime();
-                    }
-                    break;
-
-
-                default:
-                    break;
-            }
-
-        }
-    };
+    private Handler searcherHandler =new SearcherHandler(this);
 
 
     public void searchRemoteDevices(Context mContext) {
@@ -109,13 +55,13 @@ public class SearcherMode {
             callBack.searchLoading();
         }
         deviceInfos = new HashMap<>();
-        mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.IS_LOOP_SENDBROADCAST, 0);
+        searcherHandler.sendEmptyMessageDelayed(Config.HandlerGlod.IS_LOOP_SENDBROADCAST, 0);
 
         initNet(mContext);
 
         //开始计时，系统超时时间默认为10s
-        if (!mAsyncEventHandler.hasMessages(Config.HandlerGlod.SEARCHER_TIMEOUT)) {
-            mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.SEARCHER_TIMEOUT,
+        if (!searcherHandler.hasMessages(Config.HandlerGlod.SEARCHER_TIMEOUT)) {
+            searcherHandler.sendEmptyMessageDelayed(Config.HandlerGlod.SEARCHER_TIMEOUT,
                     Config.SystemTime.SCAN_SERVER_OUTTIME);
         }
 
@@ -131,7 +77,7 @@ public class SearcherMode {
             multicastSocket = new MulticastSocket(
                     Config.PortGlob.MULTIPORT);
             if (broadcastAddress == null) {
-                mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.NET_ERROR, 0);
+                searcherHandler.sendEmptyMessageDelayed(Config.HandlerGlod.NET_ERROR, 0);
             } else {
                 multicastSocket.joinGroup(broadcastAddress);
             }
@@ -178,8 +124,8 @@ public class SearcherMode {
                     pack.getLength());
 
             //收到服务器的答复，取消超时任务
-            if (!back.isEmpty() && mAsyncEventHandler.hasMessages(Config.HandlerGlod.SEARCHER_TIMEOUT)) {
-                mAsyncEventHandler.removeMessages(Config.HandlerGlod.SEARCHER_TIMEOUT);
+            if (!back.isEmpty() && searcherHandler.hasMessages(Config.HandlerGlod.SEARCHER_TIMEOUT)) {
+                searcherHandler.removeMessages(Config.HandlerGlod.SEARCHER_TIMEOUT);
             }
             if (back != null && back.startsWith("serverip:")) {
                 String[] split = back.split(":");
@@ -190,7 +136,7 @@ public class SearcherMode {
                     DeviceInfo mDeviceInfo = new DeviceInfo(remoteServerIp, remoteName);
                     deviceInfos.put(remoteServerIp, mDeviceInfo);
 
-                    mAsyncEventHandler.sendEmptyMessageDelayed(Config.HandlerGlod.SCAN_DEVICE_SUCESS,
+                    searcherHandler.sendEmptyMessageDelayed(Config.HandlerGlod.SCAN_DEVICE_SUCESS,
                             0);
                 }
 
@@ -202,7 +148,7 @@ public class SearcherMode {
             e.printStackTrace();
             LogUtils.i(TAG, "tlh -------- " + e.toString());
             if (e instanceof SocketTimeoutException) {
-                mAsyncEventHandler.sendEmptyMessage(Config.HandlerGlod.TIME_OUT);
+                searcherHandler.sendEmptyMessage(Config.HandlerGlod.TIME_OUT);
             }
         }
 
@@ -248,5 +194,74 @@ public class SearcherMode {
         public void searchOutTime();
 
         public void networkError();
+    }
+
+
+
+    public static class SearcherHandler extends Handler{
+        WeakReference<SearcherMode> weakReference;
+
+        public SearcherHandler(SearcherMode mSearcherMode) {
+            weakReference=new WeakReference<SearcherMode>(mSearcherMode);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+     final SearcherMode searcherMode=weakReference.get();
+     if (searcherMode==null)
+         return;
+            switch (msg.what) {
+                case Config.HandlerGlod.SCAN_DEVICE_SUCESS:
+                    if (searcherMode.callBack != null &&searcherMode. deviceInfos != null && searcherMode.deviceInfos.size() > 0) {
+                        searcherMode. callBack.searchSuccess(searcherMode.deviceInfos);
+                        searcherMode.  callBack.searchEnd();
+                    }
+
+                    break;
+
+                case Config.HandlerGlod.TIME_OUT:
+                    if (searcherMode.callBack != null) {
+                        searcherMode. callBack.searchOutTime();
+                    }
+
+                    break;
+
+                case Config.HandlerGlod.IS_LOOP_SENDBROADCAST:
+                    ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                searcherMode. sendBroadCast();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+
+                    if (searcherMode.isLoopSendBraodCast) {
+                        sendEmptyMessageDelayed(Config.HandlerGlod.IS_LOOP_SENDBROADCAST, 1000);
+                    }
+
+                    break;
+                case Config.HandlerGlod.NET_ERROR:
+                    if (searcherMode.callBack != null) {
+                        searcherMode. callBack.networkError();
+                    }
+                    break;
+
+                case Config.HandlerGlod.SEARCHER_TIMEOUT:
+                    if (searcherMode.callBack != null) {
+                        searcherMode.callBack.searchOutTime();
+                    }
+                    break;
+
+
+                default:
+                    break;
+            }
+
+
+
+        }
     }
 }

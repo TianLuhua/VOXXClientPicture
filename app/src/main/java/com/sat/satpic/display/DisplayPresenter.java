@@ -90,7 +90,6 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
         checkHotSpotTimer = new Timer();
 
 
-
     }
 
     /**
@@ -143,21 +142,40 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
      */
     private void startTouchServer() {
 
-  ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
-      @Override
-      public void run() {
-          try {
-              LogUtils.e(TAG, "tlh--startTouchServer-:" + serverIp);
-              if (touchSocket != null) return;
-              touchSocket = new Socket(serverIp,
-                      Config.PortGlob.TOUCHPORT);
-              dos = new DataOutputStream(touchSocket.getOutputStream());
-          } catch (Exception e) {
-              LogUtils.e(TAG, "hdb--touchServer-ex:" + e.toString());
-              mHandler.sendEmptyMessage(Config.HandlerGlod.TOUCH_EVENT_CONNECT_FAIL);
-          }
-      }
-  });
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                {
+                    try {
+                        LogUtils.e(TAG, "tlh--startTouchServer-:" + serverIp);
+                        if (touchSocket != null) return;
+                        touchSocket = new Socket(serverIp,
+                                Config.PortGlob.TOUCHPORT);
+                        dos = new DataOutputStream(touchSocket.getOutputStream());
+                    } catch (Exception e) {
+                        LogUtils.e(TAG, "hdb--touchServer-ex:" + e.toString());
+                        mHandler.sendEmptyMessage(Config.HandlerGlod.TOUCH_EVENT_CONNECT_FAIL);
+                    }
+                }
+            }
+        }).start();
+
+//  ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+//      @Override
+//      public void run() {
+//          try {
+//              LogUtils.e(TAG, "tlh--startTouchServer-:" + serverIp);
+//              if (touchSocket != null) return;
+//              touchSocket = new Socket(serverIp,
+//                      Config.PortGlob.TOUCHPORT);
+//              dos = new DataOutputStream(touchSocket.getOutputStream());
+//          } catch (Exception e) {
+//              LogUtils.e(TAG, "hdb--touchServer-ex:" + e.toString());
+//              mHandler.sendEmptyMessage(Config.HandlerGlod.TOUCH_EVENT_CONNECT_FAIL);
+//          }
+//      }
+//  });
 
     }
 
@@ -168,7 +186,7 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
      * @param changeX    事件对应的 X 值
      * @param changeY    事件对应的  值
      */
-    public synchronized void  sendTouchData(final int actionType, final int changeX, final int changeY) {
+    public synchronized void sendTouchData(final int actionType, final int changeX, final int changeY) {
         LogUtils.i(TAG, "sendTouchData---action:" + actionType + "  changeX:" + changeX
                 + "  changeY:" + changeY);
         ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
@@ -195,7 +213,7 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
                             dos.flush();
                         } catch (IOException e) {
                             e.printStackTrace();
-                            LogUtils.i(TAG, "hdb----sendTouchData:" +e.toString());
+                            LogUtils.i(TAG, "hdb----sendTouchData:" + e.toString());
                         }
 
                     }
@@ -241,17 +259,17 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
     }
 
 
-    public static  class DisplayHandler extends Handler{
-    private    WeakReference<DisplayPresenter> weakReference;
+    public static class DisplayHandler extends Handler {
+        private WeakReference<DisplayPresenter> weakReference;
 
         public DisplayHandler(DisplayPresenter displayPresenter) {
-            weakReference=new WeakReference<DisplayPresenter>(displayPresenter);
+            weakReference = new WeakReference<DisplayPresenter>(displayPresenter);
         }
 
         @Override
         public void handleMessage(Message msg) {
             DisplayPresenter displayPresenter = weakReference.get();
-           if (displayPresenter==null)return;
+            if (displayPresenter == null) return;
             switch (msg.what) {
 
                 case Config.HandlerGlod.TOUCH_EVENT_CONNECT_FAIL:
@@ -272,7 +290,6 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
 
         }
     }
-
 
 
 }

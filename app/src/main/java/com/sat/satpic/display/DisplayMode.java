@@ -3,14 +3,15 @@ package com.sat.satpic.display;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
+import android.os.Message;
 
 import com.sat.satpic.Config;
 import com.sat.satpic.utils.ByteUtils;
 import com.sat.satpic.utils.LogUtils;
-import com.sat.satpic.utils.ThreadPoolManager;
 
 import java.io.DataInputStream;
 import java.io.IOException;
+import java.lang.ref.WeakReference;
 import java.net.Socket;
 
 /**
@@ -28,34 +29,7 @@ public class DisplayMode {
     private byte[] receveBytes;
 
     private Bitmap bm;
-    private Handler mHandler = new Handler() {
-        public void handleMessage(android.os.Message msg) {
-            switch (msg.what) {
-
-                case Config.HandlerGlod.TOUCH_EVENT_CONNECT_FAIL:
-                    if (callBack != null) {
-                        callBack.fila();
-                    }
-                    break;
-
-                case Config.HandlerGlod.CONNET_SUCCESS:
-                    if (callBack != null) {
-                        callBack.connectSucess();
-                    }
-                    break;
-                case Config.HandlerGlod.SHOW_IMAGEVIEW:
-                    if (callBack != null && bm != null) {
-                        callBack.disPlayRemoteDesk(bm);
-                    }
-                    break;
-
-                default:
-                    break;
-            }
-        }
-
-        ;
-    };
+    private Handler mHandler = new DisPlayHander(this);
 
     /**
      * 开启远程服务端,通过远程服务器的
@@ -66,7 +40,7 @@ public class DisplayMode {
         if (callBack != null) {
             callBack.loading();
         }
-        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+        new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -90,7 +64,32 @@ public class DisplayMode {
                     mHandler.sendEmptyMessage(Config.HandlerGlod.CONNECT_FAIL);
                 }
             }
-        });
+        }).start();
+//        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    LogUtils.i(TAG, "hdb---data--连接start");
+//                    if (dataSocket != null) {
+//                        LogUtils.i(TAG, "hdb---data--dataSocket != null");
+//                        return;
+//                    }
+//                    dataSocket = new Socket(serverIp, Config.PortGlob.DATAPORT);// 10.0.0.24
+//                    DataInputStream dis = new DataInputStream(
+//                            dataSocket.getInputStream());
+//                    LogUtils.i(TAG, "hdb---data--连接成功");
+//                    mHandler.sendEmptyMessage(Config.HandlerGlod.CONNET_SUCCESS);
+//                    isRun = true;
+//                    while (isRun) {
+//                        readFile(dis);
+//                    }
+//                    mHandler.sendEmptyMessage(Config.HandlerGlod.CONNECT_FAIL);
+//                } catch (Exception ex) {
+//                    LogUtils.e(TAG, "hdb--dataServer-ex:" + ex.toString());
+//                    mHandler.sendEmptyMessage(Config.HandlerGlod.CONNECT_FAIL);
+//                }
+//            }
+//        });
     }
 
 
@@ -136,6 +135,46 @@ public class DisplayMode {
     public void onDestroy() {
         receveBytes = null;
         dataSocket = null;
+    }
+
+    public static class DisPlayHander extends Handler {
+
+        WeakReference<DisplayMode> weakReference;
+
+        public DisPlayHander(DisplayMode mDisplayMode) {
+            weakReference = new WeakReference<>(mDisplayMode);
+
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            DisplayMode mDisplayMode = weakReference.get();
+            if (mDisplayMode == null)
+                return;
+
+            switch (msg.what) {
+
+                case Config.HandlerGlod.TOUCH_EVENT_CONNECT_FAIL:
+                    if (mDisplayMode.callBack != null) {
+                        mDisplayMode.callBack.fila();
+                    }
+                    break;
+
+                case Config.HandlerGlod.CONNET_SUCCESS:
+                    if (mDisplayMode.callBack != null) {
+                        mDisplayMode.callBack.connectSucess();
+                    }
+                    break;
+                case Config.HandlerGlod.SHOW_IMAGEVIEW:
+                    if (mDisplayMode.callBack != null && mDisplayMode.bm != null) {
+                        mDisplayMode.callBack.disPlayRemoteDesk(mDisplayMode.bm);
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+        }
     }
 
 }

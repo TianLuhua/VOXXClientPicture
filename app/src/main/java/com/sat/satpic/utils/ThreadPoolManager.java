@@ -19,7 +19,7 @@ public final class ThreadPoolManager {
 
 	private static final int SIZE_CORE_POOL = 5;
 
-	private static final int SIZE_MAX_POOL = 20;
+	private static final int SIZE_MAX_POOL = 10;
 
 	private static final int TIME_KEEP_ALIVE = 2000;
 
@@ -32,7 +32,6 @@ public final class ThreadPoolManager {
 		return sThreadPoolManager;
 	}
 
-	// ���񻺳����
 	private final Queue<Runnable> mTaskQueue = new LinkedList<Runnable>();
 
 

@@ -188,7 +188,7 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
      * @param changeX    事件对应的 X 值
      * @param changeY    事件对应的  值
      */
-    public void sendTouchData(final int actionType, final int changeX, final int changeY) {
+    public synchronized void  sendTouchData(final int actionType, final int changeX, final int changeY) {
         LogUtils.i(TAG, "sendTouchData---action:" + actionType + "  changeX:" + changeX
                 + "  changeY:" + changeY);
         ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {

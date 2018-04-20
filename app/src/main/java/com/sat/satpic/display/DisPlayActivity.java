@@ -219,23 +219,7 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
         changeY = (int) (y * densityY);
         if (displayPresenter == null)
             return super.onTouchEvent(event);
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                displayPresenter.sendTouchData(Config.MotionEventKey.ACTION_DOWN, changeX, changeY);
-                break;
-
-            case MotionEvent.ACTION_MOVE:
-                displayPresenter.sendTouchData(Config.MotionEventKey.ACTION_MOVE, changeX, changeY);
-                break;
-
-            case MotionEvent.ACTION_UP:
-            case MotionEvent.ACTION_CANCEL:
-                displayPresenter.sendTouchData(Config.MotionEventKey.ACTION_UP, changeX, changeY);
-                break;
-
-            default:
-                break;
-        }
+        displayPresenter.sendTouchData(event.getAction(), changeX, changeY);
         return super.onTouchEvent(event);
     }
 

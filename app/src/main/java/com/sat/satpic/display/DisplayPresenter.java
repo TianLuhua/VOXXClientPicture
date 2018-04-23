@@ -37,11 +37,6 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
     private Socket touchSocket;
     private DataOutputStream dos;
 
-    private JSONObject jObject = new JSONObject();
-    private byte[] intToByte = new byte[1];
-    private byte[] data;
-    private byte[] jBytes;
-
     private DisplayMode displayMode;
 
     private Context mContext;
@@ -194,7 +189,7 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
             public void run() {
                 if (dos != null) {
                     if (changeX >= 0 && changeX <= 1024 && changeY >= 0 && changeY <= 600) {
-
+                        JSONObject jObject = new JSONObject();
                         try {
                             jObject.put(Config.MotionEventKey.JACTION, actionType);
                             jObject.put(Config.MotionEventKey.JX, changeX);
@@ -202,9 +197,10 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
                         } catch (JSONException e1) {
                             e1.printStackTrace();
                         }
-                        jBytes = jObject.toString().getBytes();
+                        byte[] jBytes = jObject.toString().getBytes();
+                        byte[] intToByte = new byte[1];
                         intToByte[0] = (byte) jBytes.length;
-                        data = new byte[jBytes.length + 1];
+                        byte[] data = new byte[jBytes.length + 1];
                         System.arraycopy(intToByte, 0, data, 0, 1);
                         System.arraycopy(jBytes, 0, data, 1, jBytes.length);
                         LogUtils.i(TAG, "hdb----data:" + new String(data));

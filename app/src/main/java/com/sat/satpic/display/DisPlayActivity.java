@@ -49,9 +49,20 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
         HideSystemUIUtils.hideSystemUI(this);
         displayPresenter = getPresenter();
         DisplayMetrics dm = getResources().getDisplayMetrics();
+        LogUtils.e("tlh", "onCreate：dm---:" + dm.toString());
         fragmentManager = getFragmentManager();
+        int temp;
         int widthPixels = dm.widthPixels;
         int heightPixels = dm.heightPixels;
+        LogUtils.e("tlh", "onCreate：dm---:" +widthPixels+" heightPixels"+heightPixels);
+        if (widthPixels < heightPixels) {
+            {
+                temp = widthPixels;
+                widthPixels = heightPixels;
+                heightPixels = temp;
+
+            }
+        }
         densityX = 1024f / (float) widthPixels;
         densityY = 600f / (float) heightPixels;
     }

@@ -16,7 +16,7 @@ public class VOXXApplication extends Application {
     public void onCreate() {
         super.onCreate();
 //        ZXingLibrary.initDisplayOpinion(this);
-        LogUtils.isDebug=false;
+        LogUtils.isDebug=true;
         CrashReport.initCrashReport(getApplicationContext(), "7c592f151e", true);
     }
 

@@ -137,7 +137,7 @@ public class SearcherMode {
                     deviceInfos.put(remoteServerIp, mDeviceInfo);
 
                     searcherHandler.sendEmptyMessageDelayed(Config.HandlerGlod.SCAN_DEVICE_SUCESS,
-                            0);
+                            500);
                 }
 
                 LogUtils.i(TAG, "hdb-------serverIp:" + remoteServerIp

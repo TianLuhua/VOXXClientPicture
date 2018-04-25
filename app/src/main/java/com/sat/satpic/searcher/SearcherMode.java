@@ -254,7 +254,7 @@ public class SearcherMode {
                     });
 
                     if (searcherMode.isLoopSendBraodCast) {
-                        sendEmptyMessageDelayed(Config.HandlerGlod.IS_LOOP_SENDBROADCAST, 500);
+                        sendEmptyMessageDelayed(Config.HandlerGlod.IS_LOOP_SENDBROADCAST, 200);
                     }
 
                     break;

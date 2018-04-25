@@ -11,58 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cc6bf73-37ad-4a0b-9abb-d2fbccdc6872" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/build-info/debug/build-info.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/build-info/debug/build-info.xml" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/sat/satpic/Config$SystemKey.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/sat/satpic/Config.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/sat/satpic/Config.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/sat/satpic/display/DisPlayActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/sat/satpic/display/DisPlayActivity.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/sat/satpic/display/DisplayMode$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/sat/satpic/display/DisplayMode$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/sat/satpic/display/DisplayMode.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/sat/satpic/display/DisplayMode.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/sat/satpic/display/DisplayPresenter$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/sat/satpic/display/DisplayPresenter$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/sat/satpic/display/DisplayPresenter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/sat/satpic/display/DisplayPresenter.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/sat/satpic/searcher/SearcherMode.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/sat/satpic/searcher/SearcherMode.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/sat/satpic/searcher/SearcherPrecenter$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/sat/satpic/searcher/SearcherPrecenter$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/sat/satpic/searcher/SearcherPrecenter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/sat/satpic/searcher/SearcherPrecenter.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/sat/satpic/Config$SystemKey.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/sat/satpic/Config.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/sat/satpic/Config.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/sat/satpic/display/DisPlayActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/sat/satpic/display/DisPlayActivity.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/sat/satpic/display/DisplayMode$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/sat/satpic/display/DisplayMode$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/sat/satpic/display/DisplayMode.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/sat/satpic/display/DisplayMode.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/sat/satpic/display/DisplayPresenter$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/sat/satpic/display/DisplayPresenter$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/sat/satpic/display/DisplayPresenter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/sat/satpic/display/DisplayPresenter.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/sat/satpic/searcher/SearcherMode.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/sat/satpic/searcher/SearcherMode.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/sat/satpic/searcher/SearcherPrecenter$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/sat/satpic/searcher/SearcherPrecenter$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/sat/satpic/searcher/SearcherPrecenter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/sat/satpic/searcher/SearcherPrecenter.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_1.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_1.apk" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_2.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_2.apk" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_7.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_7.apk" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/sat/satpic/Config$SystemKey.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/sat/satpic/Config.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/sat/satpic/Config.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/sat/satpic/display/DisPlayActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/sat/satpic/display/DisPlayActivity.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/sat/satpic/display/DisplayMode$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/sat/satpic/display/DisplayMode$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/sat/satpic/display/DisplayMode.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/sat/satpic/display/DisplayMode.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/sat/satpic/display/DisplayPresenter$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/sat/satpic/display/DisplayPresenter$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/sat/satpic/display/DisplayPresenter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/sat/satpic/display/DisplayPresenter.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/sat/satpic/searcher/SearcherMode.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/sat/satpic/searcher/SearcherMode.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/sat/satpic/searcher/SearcherPrecenter$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/sat/satpic/searcher/SearcherPrecenter$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/sat/satpic/searcher/SearcherPrecenter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/sat/satpic/searcher/SearcherPrecenter.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/sat/satpic/display/DisPlayActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/sat/satpic/display/DisPlayActivity.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/sat/satpic/display/DisplayMode$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/sat/satpic/display/DisplayMode$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/sat/satpic/display/DisplayMode.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/sat/satpic/display/DisplayMode.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/sat/satpic/display/DisplayPresenter$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/sat/satpic/display/DisplayPresenter$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/sat/satpic/display/DisplayPresenter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/sat/satpic/display/DisplayPresenter.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/2/com/sat/satpic/searcher/SearcherMode.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/2/com/sat/satpic/searcher/SearcherMode.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/2/com/sat/satpic/searcher/SearcherPrecenter$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/2/com/sat/satpic/searcher/SearcherPrecenter$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/2/com/sat/satpic/searcher/SearcherPrecenter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/2/com/sat/satpic/searcher/SearcherPrecenter.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/7/com/sat/satpic/Config$SystemKey.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/7/com/sat/satpic/Config.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/7/com/sat/satpic/Config.class" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/Config.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/Config.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/display/DisPlayActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/display/DisPlayActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/display/DisplayMode.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/display/DisplayMode.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/display/DisplayPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/display/DisplayPresenter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/searcher/SearcherMode.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/searcher/SearcherMode.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/searcher/SearcherPrecenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/searcher/SearcherPrecenter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/zxing/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/zxing/MainActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/base/AbstractMVPActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/base/AbstractMVPActivity.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -88,8 +37,31 @@
       <file leaf-file-name="DisPlayActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sat/satpic/display/DisPlayActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="88" column="25" lean-forward="false" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
+            <state relative-caret-position="229">
+              <caret line="126" column="75" lean-forward="false" selection-start-line="126" selection-start-column="75" selection-end-line="126" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_display.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_display.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractMVPActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sat/satpic/base/AbstractMVPActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="32" column="35" lean-forward="false" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -99,7 +71,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sat/satpic/zxing/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="263">
-              <caret line="156" column="17" lean-forward="true" selection-start-line="156" selection-start-column="17" selection-end-line="156" selection-end-column="17" />
+              <caret line="156" column="17" lean-forward="false" selection-start-line="156" selection-start-column="17" selection-end-line="156" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -128,16 +100,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearcherView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sat/satpic/searcher/SearcherView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SearcherActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sat/satpic/searcher/SearcherActivity.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -161,12 +123,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearcherMode.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SearcherMode.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sat/satpic/searcher/SearcherMode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="231" column="55" lean-forward="false" selection-start-line="231" selection-start-column="46" selection-end-line="231" selection-end-column="55" />
-              <folding />
+            <state relative-caret-position="315">
+              <caret line="256" column="93" lean-forward="false" selection-start-line="256" selection-start-column="93" selection-end-line="256" selection-end-column="93" />
+              <folding>
+                <element signature="e#7592#7967#0" expanded="true" />
+                <element signature="e#7966#7967#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -181,21 +146,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DisplayView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sat/satpic/display/DisplayView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5">
-              <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>displayRemoteDeviceSurface</find>
       <find>data</find>
       <find>intToByte</find>
       <find>jBytes</find>
@@ -222,6 +176,7 @@
       <find>multicastSocket</find>
       <find>start:</find>
       <find>SCAN_DEVICE_SUCESS</find>
+      <find>displayRemoteDeviceSurface</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2263,11 +2218,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/VOXXApplication.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/display/DisplayMode.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/display/DisplayPresenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/searcher/SearcherMode.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/Config.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/display/DisPlayActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/searcher/SearcherPrecenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/zxing/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/searcher/SearcherMode.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_display.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/sat/satpic/base/AbstractMVPActivity.java" />
       </list>
     </option>
   </component>
@@ -2580,15 +2537,16 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32034633" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32034633" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22619048" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17910448" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2810,14 +2768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sat/satpic/display/DisPlayActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="88" column="25" lean-forward="false" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sat/satpic/Config.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
@@ -2829,7 +2779,7 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sat/satpic/zxing/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="263">
-          <caret line="156" column="17" lean-forward="true" selection-start-line="156" selection-start-column="17" selection-end-line="156" selection-end-column="17" />
+          <caret line="156" column="17" lean-forward="false" selection-start-line="156" selection-start-column="17" selection-end-line="156" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -2844,8 +2794,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sat/satpic/searcher/SearcherMode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="231" column="55" lean-forward="false" selection-start-line="231" selection-start-column="46" selection-end-line="231" selection-end-column="55" />
+        <state relative-caret-position="315">
+          <caret line="256" column="93" lean-forward="false" selection-start-line="256" selection-start-column="93" selection-end-line="256" selection-end-column="93" />
+          <folding>
+            <element signature="e#7592#7967#0" expanded="true" />
+            <element signature="e#7966#7967#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sat/satpic/display/DisPlayActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="126" column="75" lean-forward="false" selection-start-line="126" selection-start-column="75" selection-end-line="126" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_display.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sat/satpic/base/AbstractMVPActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="32" column="35" lean-forward="false" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
           <folding />
         </state>
       </provider>

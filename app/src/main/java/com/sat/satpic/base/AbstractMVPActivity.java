@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.sat.satpic.Config;
@@ -29,6 +30,7 @@ public abstract class AbstractMVPActivity<V extends BaseView, P extends Abstract
         //在清单配置文件强制activity横屏导致启动应用慢的问题
         if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         if (mPresenter == null) {
             mPresenter = createPresenter();

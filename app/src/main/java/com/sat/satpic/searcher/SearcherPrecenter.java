@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.sat.satpic.Config;
 import com.sat.satpic.base.AbstractPresenter;
 
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -86,6 +87,7 @@ public class SearcherPrecenter extends AbstractPresenter<SearcherView> {
             });
             this.mContext = mContext;
             searcherMode.searchRemoteDevices(mContext);
+
         }
 
     }
@@ -107,10 +109,21 @@ public class SearcherPrecenter extends AbstractPresenter<SearcherView> {
         Intent intent = new Intent(Config.SystemAction.ACTIVITY_DISPAY_REMOTE);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         Bundle bundle = new Bundle();
-        bundle.putString(Config.SystemKey.KEY_BUNDLE_SERVICE_IP, remoteServiceID);
+        bundle.putString(Config.ActionKey.CLIENT_IP_KEY, remoteServiceID);
         intent.putExtras(bundle);
         if (mContext.getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) != null) {
             try {
+                try {
+                    searcherMode.startRemoteService(Config.ActionKey.SERVICE_START_KEY);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    if (getView() != null) {
+                        getView().networkError();
+
+                    }
+                    return;
+
+                }
                 mContext.startActivity(intent);
             } catch (ActivityNotFoundException e) {
                 Toast.makeText(mContext, "Start Activity Error:" + remoteServiceID, Toast.LENGTH_SHORT).show();

@@ -3,6 +3,7 @@ package com.sat.satpic.searcher;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 
 import com.sat.satpic.Config;
 import com.sat.satpic.bean.DeviceInfo;
@@ -46,7 +47,7 @@ public class SearcherMode {
     private Object lock = new Object();
 
 
-    private Handler searcherHandler =new SearcherHandler(this);
+    private Handler searcherHandler = new SearcherHandler(this);
 
 
     public void searchRemoteDevices(Context mContext) {
@@ -107,6 +108,21 @@ public class SearcherMode {
             receiverBack();
         }
 
+    }
+
+    /**
+     * 通知服务器开始发送数据到客户端
+     *
+     * @throws IOException
+     */
+    public void startRemoteService(String start) throws IOException {
+        if (TextUtils.isEmpty(start))
+            return;
+        byte[] data = start.getBytes();
+        DatagramPacket packet = new DatagramPacket(data, data.length,
+                broadcastAddress, Config.PortGlob.MULTIPORT);
+        multicastSocket.send(packet);
+        LogUtils.i(TAG, "startRemoteService:" + start);
     }
 
     /**
@@ -197,31 +213,30 @@ public class SearcherMode {
     }
 
 
-
-    public static class SearcherHandler extends Handler{
+    public static class SearcherHandler extends Handler {
         WeakReference<SearcherMode> weakReference;
 
         public SearcherHandler(SearcherMode mSearcherMode) {
-            weakReference=new WeakReference<SearcherMode>(mSearcherMode);
+            weakReference = new WeakReference<SearcherMode>(mSearcherMode);
         }
 
         @Override
         public void handleMessage(Message msg) {
-     final SearcherMode searcherMode=weakReference.get();
-     if (searcherMode==null)
-         return;
+            final SearcherMode searcherMode = weakReference.get();
+            if (searcherMode == null)
+                return;
             switch (msg.what) {
                 case Config.HandlerGlod.SCAN_DEVICE_SUCESS:
-                    if (searcherMode.callBack != null &&searcherMode. deviceInfos != null && searcherMode.deviceInfos.size() > 0) {
-                        searcherMode. callBack.searchSuccess(searcherMode.deviceInfos);
-                        searcherMode.  callBack.searchEnd();
+                    if (searcherMode.callBack != null && searcherMode.deviceInfos != null && searcherMode.deviceInfos.size() > 0) {
+                        searcherMode.callBack.searchSuccess(searcherMode.deviceInfos);
+                        searcherMode.callBack.searchEnd();
                     }
 
                     break;
 
                 case Config.HandlerGlod.TIME_OUT:
                     if (searcherMode.callBack != null) {
-                        searcherMode. callBack.searchOutTime();
+                        searcherMode.callBack.searchOutTime();
                     }
 
                     break;
@@ -231,7 +246,7 @@ public class SearcherMode {
                         @Override
                         public void run() {
                             try {
-                                searcherMode. sendBroadCast();
+                                searcherMode.sendBroadCast();
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -239,13 +254,13 @@ public class SearcherMode {
                     });
 
                     if (searcherMode.isLoopSendBraodCast) {
-                        sendEmptyMessageDelayed(Config.HandlerGlod.IS_LOOP_SENDBROADCAST, 1000);
+                        sendEmptyMessageDelayed(Config.HandlerGlod.IS_LOOP_SENDBROADCAST, 500);
                     }
 
                     break;
                 case Config.HandlerGlod.NET_ERROR:
                     if (searcherMode.callBack != null) {
-                        searcherMode. callBack.networkError();
+                        searcherMode.callBack.networkError();
                     }
                     break;
 
@@ -259,7 +274,6 @@ public class SearcherMode {
                 default:
                     break;
             }
-
 
 
         }

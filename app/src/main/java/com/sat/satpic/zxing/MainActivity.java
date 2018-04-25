@@ -151,7 +151,7 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
         Intent intent = new Intent(Config.SystemAction.ACTIVITY_DISPAY_REMOTE);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         Bundle bundle = new Bundle();
-        bundle.putString(Config.SystemKey.KEY_BUNDLE_SERVICE_IP, remoteServiceID);
+        bundle.putString(Config.ActionKey.CLIENT_IP_KEY, remoteServiceID);
         intent.putExtras(bundle);
         if (getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) != null) {
             try {

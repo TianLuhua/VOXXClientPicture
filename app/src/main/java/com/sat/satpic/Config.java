@@ -57,9 +57,10 @@ public class Config {
         public static final String ACTIVITY_DISPAY_REMOTE = "com.sat.action.display.remote";
     }
 
-    public static class SystemKey {
-        public static final String KEY_BUNDLE_SERVICE_IP = "serverIp";
-    }
+    public static class ActionKey {
+        public static final String CLIENT_IP_KEY = "phoneip:";
+        public static final String SERVICE_START_KEY = "start:";
 
+    }
 
 }

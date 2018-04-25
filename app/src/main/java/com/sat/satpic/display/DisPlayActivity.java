@@ -51,10 +51,12 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
         DisplayMetrics dm = getResources().getDisplayMetrics();
         LogUtils.e("tlh", "onCreate：dm---:" + dm.toString());
         fragmentManager = getFragmentManager();
-        int temp;
         int widthPixels = dm.widthPixels;
         int heightPixels = dm.heightPixels;
         LogUtils.e("tlh", "onCreate：dm---:" +widthPixels+" heightPixels"+heightPixels);
+
+        //出现获取的手机分辨率为反的情况，导致向车机传输坐标不准确的情况
+        int temp;
         if (widthPixels < heightPixels) {
             {
                 temp = widthPixels;
@@ -77,7 +79,7 @@ public class DisPlayActivity extends AbstractMVPActivity<DisplayView, DisplayPre
     protected void onStart() {
         super.onStart();
         LogUtils.e("tlh", "onStart");
-        remoteServiceIP = getIntent().getExtras().getString(Config.SystemKey.KEY_BUNDLE_SERVICE_IP);
+        remoteServiceIP = getIntent().getExtras().getString(Config.ActionKey.CLIENT_IP_KEY);
         LogUtils.e(TAG, "remoteServiceIP:" + remoteServiceIP);
 
     }

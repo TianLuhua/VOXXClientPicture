@@ -156,22 +156,6 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
             }
         }).start();
 
-//  ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
-//      @Override
-//      public void run() {
-//          try {
-//              LogUtils.e(TAG, "tlh--startTouchServer-:" + serverIp);
-//              if (touchSocket != null) return;
-//              touchSocket = new Socket(serverIp,
-//                      Config.PortGlob.TOUCHPORT);
-//              dos = new DataOutputStream(touchSocket.getOutputStream());
-//          } catch (Exception e) {
-//              LogUtils.e(TAG, "hdb--touchServer-ex:" + e.toString());
-//              mHandler.sendEmptyMessage(Config.HandlerGlod.TOUCH_EVENT_CONNECT_FAIL);
-//          }
-//      }
-//  });
-
     }
 
     /**

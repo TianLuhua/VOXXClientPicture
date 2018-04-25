@@ -113,17 +113,17 @@ public class SearcherPrecenter extends AbstractPresenter<SearcherView> {
         intent.putExtras(bundle);
         if (mContext.getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) != null) {
             try {
-                try {
-                    searcherMode.startRemoteService(Config.ActionKey.SERVICE_START_KEY);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    if (getView() != null) {
-                        getView().networkError();
-
-                    }
-                    return;
-
-                }
+//                try {
+//                    searcherMode.startRemoteService(Config.ActionKey.SERVICE_START_KEY);
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                    if (getView() != null) {
+//                        getView().networkError();
+//
+//                    }
+//                    return;
+//
+//                }
                 mContext.startActivity(intent);
             } catch (ActivityNotFoundException e) {
                 Toast.makeText(mContext, "Start Activity Error:" + remoteServiceID, Toast.LENGTH_SHORT).show();

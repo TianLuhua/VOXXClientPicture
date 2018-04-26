@@ -61,8 +61,8 @@ public class DisplayPresenter extends AbstractPresenter<DisplayView> implements 
                 if (getView() != null) {
                     getView().disPlayRemoteDesk(bitmap);
                 } else {
-                    //todo
-                    throw new NullPointerException("DisplayPresenter ---> disPlayRemoteDesk --->getView()==null ");
+                    //todo 这里需要处理
+                    //throw new NullPointerException("DisplayPresenter ---> disPlayRemoteDesk --->getView()==null ");
                 }
             }
 

@@ -6,6 +6,7 @@ import android.os.Message;
 import android.text.TextUtils;
 
 import com.sat.satpic.Config;
+import com.sat.satpic.base.BaseMode;
 import com.sat.satpic.bean.DeviceInfo;
 import com.sat.satpic.utils.IpUtils;
 import com.sat.satpic.utils.LogUtils;
@@ -26,7 +27,7 @@ import java.util.Map;
  * Created by Tianluhua on 2018/3/13.
  */
 
-public class SearcherMode {
+public class SearcherMode implements BaseMode {
 
     public static final String TAG = "SearcherMode";
 

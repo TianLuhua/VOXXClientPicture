@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.sat.satpic.Config;
+import com.sat.satpic.base.BaseMode;
 import com.sat.satpic.utils.ByteUtils;
 import com.sat.satpic.utils.LogUtils;
 
@@ -18,7 +19,7 @@ import java.net.Socket;
  * Created by Tianluhua on 2018/3/13.
  */
 
-public class DisplayMode {
+public class DisplayMode implements BaseMode{
 
     public static final String TAG = "DisplayMode";
 

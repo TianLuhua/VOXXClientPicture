@@ -1,4 +1,0 @@
-#Wed Apr 11 10:20:32 CST 2018
-base.0=E\:\\workspace\\androidStudio\\VOXXClientPic\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\8
-path.0=classes.dex
-renamed.0=classes.dex
